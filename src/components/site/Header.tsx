@@ -1,25 +1,20 @@
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 import { ChevronDown, Menu, X } from "lucide-react";
-
-const NAV = [
-  { href: "#about", label: "О нас" },
-  { href: "#courses", label: "Курсы" },
-  { href: "#teachers", label: "Преподаватели" },
-  { href: "#contact", label: "Связаться с нами" },
-];
-
-const LANGS = [
-  { code: "ru", label: "Русский" },
-  { code: "en", label: "English" },
-  { code: "tm", label: "Turkmen" },
-];
+import { useI18n, LANGS, Lang } from "./i18n";
 
 export function Header() {
-  const [lang, setLang] = useState("ru");
+  const { lang, setLang, t } = useI18n();
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const current = LANGS.find((l) => l.code === lang)!;
+
+  const NAV = [
+    { href: "#about", label: t.nav.about },
+    { href: "#courses", label: t.nav.courses },
+    { href: "#teachers", label: t.nav.teachers },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/85 backdrop-blur-md border-b border-border/60">
@@ -56,7 +51,7 @@ export function Header() {
                   <button
                     key={l.code}
                     onMouseDown={() => {
-                      setLang(l.code);
+                      setLang(l.code as Lang);
                       setLangOpen(false);
                     }}
                     className="block w-full px-4 py-2.5 text-left text-sm hover:bg-brand-soft hover:text-brand transition-colors"
@@ -71,7 +66,7 @@ export function Header() {
             href="#contact"
             className="rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-brand-foreground hover:opacity-90 transition-opacity"
           >
-            Войти
+            {t.login}
           </a>
         </div>
 
@@ -101,7 +96,7 @@ export function Header() {
               {LANGS.map((l) => (
                 <button
                   key={l.code}
-                  onClick={() => setLang(l.code)}
+                  onClick={() => setLang(l.code as Lang)}
                   className={`px-3 py-1.5 text-sm rounded-full ${
                     l.code === lang
                       ? "bg-brand text-brand-foreground"
@@ -117,7 +112,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground text-center"
             >
-              Войти
+              {t.login}
             </a>
           </div>
         </div>

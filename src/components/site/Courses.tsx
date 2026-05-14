@@ -1,41 +1,44 @@
 import { useMemo, useState } from "react";
-import { COURSES, TEACHERS } from "./data";
+import { COURSES, TEACHERS, Audience, Level, Schedule, Shift } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
+import { useI18n } from "./i18n";
 
-const AUDIENCES = ["All", "kids", "adults", "teens"] as const;
-const LEVELS = ["Все уровни", "Advanced", "Beginner", "Elementary", "Intermediate", "Pre-intermediate", "Toefl", "Upper-intermediate"];
-const DAYS = ["Все дни", "Понедельник-Среда-Пятница", "Вторник-Четверг-Суббота"];
-const SHIFTS = ["Все смены", "Вечером", "Днём", "Утром"];
+const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults", "teens"];
+const LEVELS: Level[] = ["Beginner", "Elementary", "Pre-intermediate", "Intermediate", "Upper-intermediate", "Advanced", "Toefl"];
+const DAYS: Schedule[] = ["mwf", "tts"];
+const SHIFTS: Shift[] = ["morning", "afternoon", "evening"];
 
 export function Courses() {
-  const [audience, setAudience] = useState<(typeof AUDIENCES)[number]>("All");
-  const [level, setLevel] = useState("Все уровни");
-  const [teacher, setTeacher] = useState("Все преподаватели");
-  const [day, setDay] = useState("Все дни");
-  const [shift, setShift] = useState("Все смены");
+  const { t, lang } = useI18n();
+  const [audience, setAudience] = useState<"All" | Audience>("All");
+  const [level, setLevel] = useState<"" | Level>("");
+  const [teacher, setTeacher] = useState("");
+  const [day, setDay] = useState<"" | Schedule>("");
+  const [shift, setShift] = useState<"" | Shift>("");
 
   const filtered = useMemo(
     () =>
       COURSES.filter(
         (c) =>
           (audience === "All" || c.audience === audience) &&
-          (level === "Все уровни" || c.level === level) &&
-          (teacher === "Все преподаватели" || c.teacher === teacher) &&
-          (day === "Все дни" || c.schedule === day) &&
-          (shift === "Все смены" || c.shift === shift),
+          (!level || c.level === level) &&
+          (!teacher || c.teacher === teacher) &&
+          (!day || c.schedule === day) &&
+          (!shift || c.shift === shift),
       ),
     [audience, level, teacher, day, shift],
   );
+
+  const audLabel = (a: "All" | Audience) =>
+    a === "All" ? t.courses.audAll : a === "kids" ? t.courses.audKids : a === "teens" ? t.courses.audTeens : t.courses.audAdults;
 
   return (
     <section id="courses" className="px-5 lg:px-10 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground max-w-4xl">
-          Наши курсы предназначены для детей, подростков и взрослых
+          {t.courses.title}
         </h2>
-        <p className="mt-5 text-lg text-foreground/60 max-w-3xl">
-          Мы обучаем английскому языку по международным стандартам CEFR, помогая вам пройти путь от новичка до свободного владения.
-        </p>
+        <p className="mt-5 text-lg text-foreground/60 max-w-3xl">{t.courses.subtitle}</p>
 
         <div className="mt-10 flex flex-wrap items-center gap-2">
           {AUDIENCES.map((a) => (
@@ -48,21 +51,32 @@ export function Courses() {
                   : "bg-surface text-foreground/70 hover:bg-brand-soft"
               }`}
             >
-              {a}
+              {audLabel(a)}
             </button>
           ))}
         </div>
 
         <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <Select value={level} onChange={setLevel} options={LEVELS} placeholder="Все уровни" />
+          <Select
+            value={level}
+            onChange={(v) => setLevel(v as Level | "")}
+            options={[{ v: "", l: t.courses.levelAll }, ...LEVELS.map((l) => ({ v: l, l: t.courses.levels[l] }))]}
+          />
           <Select
             value={teacher}
             onChange={setTeacher}
-            options={["Все преподаватели", ...TEACHERS.map((t) => t.name)]}
-            placeholder="Все преподаватели"
+            options={[{ v: "", l: t.courses.teacherAll }, ...TEACHERS.map((tt) => ({ v: tt.name, l: tt.name }))]}
           />
-          <Select value={day} onChange={setDay} options={DAYS} placeholder="Все дни" />
-          <Select value={shift} onChange={setShift} options={SHIFTS} placeholder="Все смены" />
+          <Select
+            value={day}
+            onChange={(v) => setDay(v as Schedule | "")}
+            options={[{ v: "", l: t.courses.daysAll }, ...DAYS.map((d) => ({ v: d, l: t.courses.days[d] }))]}
+          />
+          <Select
+            value={shift}
+            onChange={(v) => setShift(v as Shift | "")}
+            options={[{ v: "", l: t.courses.shiftsAll }, ...SHIFTS.map((s) => ({ v: s, l: t.courses.shifts[s] }))]}
+          />
         </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -80,10 +94,10 @@ export function Courses() {
                 />
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                   <span className="rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-medium text-foreground/80">
-                    {c.audience}
+                    {audLabel(c.audience)}
                   </span>
                   <span className="rounded-full bg-brand text-brand-foreground px-3 py-1 text-xs font-medium">
-                    {c.level}
+                    {t.courses.levels[c.level]}
                   </span>
                 </div>
               </div>
@@ -91,28 +105,22 @@ export function Courses() {
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-foreground/55">
                   <span className="inline-flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5" />
-                    {c.schedule}
+                    {t.courses.days[c.schedule]}
                   </span>
                   <span className="inline-flex items-center gap-1.5">
                     <Clock className="h-3.5 w-3.5" />
-                    {c.shift}
+                    {t.courses.shifts[c.shift]}
                   </span>
                 </div>
-                <p className="mt-2 text-xs text-foreground/50">{c.startDate}</p>
-                <h3 className="mt-3 text-lg font-semibold text-foreground leading-snug">
-                  {c.title}
-                </h3>
-                <p className="mt-3 text-sm text-foreground/60 line-clamp-3 flex-1">
-                  {c.description}
-                </p>
+                <p className="mt-2 text-xs text-foreground/50">{t.courses.started}</p>
+                <h3 className="mt-3 text-lg font-semibold text-foreground leading-snug">{c.title}</h3>
+                <p className="mt-3 text-sm text-foreground/60 line-clamp-3 flex-1">{t.courses.cefrDesc}</p>
                 <div className="mt-5 flex items-end justify-between border-t border-border pt-4">
-                  <div>
-                    <p className="text-xs text-foreground/50 inline-flex items-center gap-1.5">
-                      <User className="h-3.5 w-3.5" /> {c.teacher}
-                    </p>
-                  </div>
+                  <p className="text-xs text-foreground/50 inline-flex items-center gap-1.5">
+                    <User className="h-3.5 w-3.5" /> {c.teacher}
+                  </p>
                   <p className="text-xl font-semibold text-brand">
-                    {c.price.toLocaleString("ru")} тмт
+                    {c.price.toLocaleString(lang === "ru" ? "ru" : lang === "tm" ? "tk" : "en")} {t.courses.currency}
                   </p>
                 </div>
               </div>
@@ -120,7 +128,7 @@ export function Courses() {
           ))}
         </div>
         {filtered.length === 0 && (
-          <p className="mt-12 text-center text-foreground/50">Курсы не найдены.</p>
+          <p className="mt-12 text-center text-foreground/50">{t.courses.notFound}</p>
         )}
       </div>
     </section>
@@ -134,8 +142,7 @@ function Select({
 }: {
   value: string;
   onChange: (v: string) => void;
-  options: string[];
-  placeholder: string;
+  options: { v: string; l: string }[];
 }) {
   return (
     <div className="relative">
@@ -145,8 +152,8 @@ function Select({
         className="w-full appearance-none rounded-full border border-border bg-card px-5 py-3 pr-10 text-sm text-foreground/80 hover:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30 transition-colors"
       >
         {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
+          <option key={o.v} value={o.v}>
+            {o.l}
           </option>
         ))}
       </select>

@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useI18n } from "./i18n";
 
 export function Contact() {
+  const { t } = useI18n();
   const [sent, setSent] = useState(false);
   return (
     <section id="contact" className="px-5 lg:px-10 py-20 lg:py-28 bg-surface">
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-16 items-start">
         <div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Связаться с нами
+            {t.contact.title}
           </h2>
-          <p className="mt-6 text-lg text-foreground/65 leading-relaxed">
-            Мы всегда на связи и готовы ответить на любые вопросы о процессе обучения или выборе курса — заполните форму ниже:
-          </p>
+          <p className="mt-6 text-lg text-foreground/65 leading-relaxed">{t.contact.subtitle}</p>
           <div className="mt-10 space-y-5">
-            <Item icon={<MapPin className="h-5 w-5" />} title="Адрес" value="Ашхабад, Туркменистан" />
-            <Item icon={<Phone className="h-5 w-5" />} title="Телефон" value="+993 12 345 678" />
-            <Item icon={<Mail className="h-5 w-5" />} title="Email" value="info@kitap.tm" />
+            <Item icon={<MapPin className="h-5 w-5" />} title={t.contact.addressLabel} value={t.contact.address} />
+            <Item icon={<Phone className="h-5 w-5" />} title={t.contact.phoneLabel} value={t.contact.phone} />
+            <Item icon={<Mail className="h-5 w-5" />} title={t.contact.emailLabel} value={t.contact.email} />
           </div>
         </div>
 
@@ -32,19 +32,19 @@ export function Contact() {
               <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full bg-brand-soft text-brand text-3xl">
                 ✓
               </div>
-              <h3 className="text-2xl font-semibold text-foreground">Заявка успешно отправлена!</h3>
-              <p className="mt-3 text-foreground/60">Мы свяжемся с вами в ближайшее время.</p>
+              <h3 className="text-2xl font-semibold text-foreground">{t.contact.sentTitle}</h3>
+              <p className="mt-3 text-foreground/60">{t.contact.sentSub}</p>
             </div>
           ) : (
             <>
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Имя" name="name" required />
-                <Field label="Фамилия" name="surname" required />
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Телефон" name="phone" type="tel" required />
+                <Field label={t.contact.name} name="name" required />
+                <Field label={t.contact.surname} name="surname" required />
+                <Field label={t.contact.emailLabel} name="email" type="email" required />
+                <Field label={t.contact.phoneLabel} name="phone" type="tel" required />
               </div>
               <div className="mt-4">
-                <label className="text-sm font-medium text-foreground/80">Сообщение</label>
+                <label className="text-sm font-medium text-foreground/80">{t.contact.message}</label>
                 <textarea
                   rows={5}
                   required
@@ -55,11 +55,11 @@ export function Contact() {
                 type="submit"
                 className="mt-6 w-full rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-brand-foreground hover:opacity-90 transition-opacity"
               >
-                Отправить сообщение
+                {t.contact.send}
               </button>
               <p className="mt-4 text-xs text-foreground/50 text-center">
-                Отправляя сообщение, вы позволяете нам обрабатывать ваши данные в соответствии с нашей{" "}
-                <a className="underline hover:text-brand" href="#">Политикой конфиденциальности</a>.
+                {t.contact.privacy1}
+                <a className="underline hover:text-brand" href="#">{t.contact.privacy2}</a>.
               </p>
             </>
           )}

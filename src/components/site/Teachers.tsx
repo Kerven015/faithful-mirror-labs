@@ -1,4 +1,5 @@
 import { TEACHERS } from "./data";
+import { useI18n } from "./i18n";
 
 const PHOTOS = [
   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=70",
@@ -16,34 +17,35 @@ const PHOTOS = [
 ];
 
 export function Teachers() {
+  const { t } = useI18n();
   return (
     <section id="teachers" className="px-5 lg:px-10 py-20 lg:py-28 bg-surface">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground max-w-4xl">
-          Наши профессионалы помогут вам овладеть английским языком уверенно и с удовольствием
+          {t.teachers.title}
         </h2>
         <div className="mt-6 flex flex-wrap gap-3">
-          <span className="rounded-full border border-border bg-card px-5 py-2 text-sm text-foreground/70">Весь опыт</span>
-          <span className="rounded-full border border-border bg-card px-5 py-2 text-sm text-foreground/70">Нагрузка курса</span>
+          <span className="rounded-full border border-border bg-card px-5 py-2 text-sm text-foreground/70">{t.teachers.experienceTag}</span>
+          <span className="rounded-full border border-border bg-card px-5 py-2 text-sm text-foreground/70">{t.teachers.load}</span>
         </div>
 
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-          {TEACHERS.map((t, i) => (
+          {TEACHERS.map((tt, i) => (
             <article
-              key={t.name}
+              key={tt.name}
               className="group overflow-hidden rounded-3xl bg-card border border-border transition-all hover:shadow-lg hover:-translate-y-1"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                 <img
                   src={PHOTOS[i]}
-                  alt={t.name}
+                  alt={tt.name}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-5">
-                <p className="text-xs text-foreground/55">Опыт: {t.experience}</p>
-                <h3 className="mt-1 text-base font-semibold text-foreground">{t.name}</h3>
+                <p className="text-xs text-foreground/55">{t.teachers.experience}: {t.teachers.years(tt.years)}</p>
+                <h3 className="mt-1 text-base font-semibold text-foreground">{tt.name}</h3>
               </div>
             </article>
           ))}
