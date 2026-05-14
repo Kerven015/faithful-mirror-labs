@@ -1,0 +1,127 @@
+import { useState } from "react";
+import logo from "@/assets/logo.png";
+import { ChevronDown, Menu, X } from "lucide-react";
+
+const NAV = [
+  { href: "#about", label: "О нас" },
+  { href: "#courses", label: "Курсы" },
+  { href: "#teachers", label: "Преподаватели" },
+  { href: "#contact", label: "Связаться с нами" },
+];
+
+const LANGS = [
+  { code: "ru", label: "Русский" },
+  { code: "en", label: "English" },
+  { code: "tm", label: "Turkmen" },
+];
+
+export function Header() {
+  const [lang, setLang] = useState("ru");
+  const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const current = LANGS.find((l) => l.code === lang)!;
+
+  return (
+    <header className="sticky top-0 z-50 w-full bg-background/85 backdrop-blur-md border-b border-border/60">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-10">
+        <a href="#top" className="flex items-center">
+          <img src={logo} alt="Kitap" className="h-9 w-auto" />
+        </a>
+
+        <nav className="hidden lg:flex items-center gap-10">
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-[15px] font-medium text-foreground/80 hover:text-brand transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden lg:flex items-center gap-4">
+          <div className="relative">
+            <button
+              onClick={() => setLangOpen((v) => !v)}
+              onBlur={() => setTimeout(() => setLangOpen(false), 150)}
+              className="flex items-center gap-1.5 text-[15px] font-medium text-foreground/80 hover:text-brand transition-colors"
+            >
+              {current.label}
+              <ChevronDown className="h-4 w-4" />
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 mt-3 w-36 rounded-xl border border-border bg-card shadow-lg overflow-hidden animate-fade-in">
+                {LANGS.filter((l) => l.code !== lang).map((l) => (
+                  <button
+                    key={l.code}
+                    onMouseDown={() => {
+                      setLang(l.code);
+                      setLangOpen(false);
+                    }}
+                    className="block w-full px-4 py-2.5 text-left text-sm hover:bg-brand-soft hover:text-brand transition-colors"
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <a
+            href="#contact"
+            className="rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-brand-foreground hover:opacity-90 transition-opacity"
+          >
+            Войти
+          </a>
+        </div>
+
+        <button
+          className="lg:hidden p-2 -mr-2"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="lg:hidden border-t border-border bg-background animate-fade-in">
+          <div className="px-5 py-4 flex flex-col gap-1">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="py-3 text-[15px] font-medium text-foreground/80"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="flex gap-2 pt-3 border-t border-border mt-2">
+              {LANGS.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  className={`px-3 py-1.5 text-sm rounded-full ${
+                    l.code === lang
+                      ? "bg-brand text-brand-foreground"
+                      : "bg-surface text-foreground/70"
+                  }`}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground text-center"
+            >
+              Войти
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
