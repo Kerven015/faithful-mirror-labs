@@ -1,26 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Courses } from "@/components/site/Courses";
+import { Teachers } from "@/components/site/Teachers";
+import { About } from "@/components/site/About";
+import { News } from "@/components/site/News";
+import { Faq } from "@/components/site/Faq";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Kitap — Образовательный центр английского языка в Ашхабаде" },
+      {
+        name: "description",
+        content:
+          "Kitap Bilim Merkezi — курсы английского языка для детей, подростков и взрослых по международным стандартам CEFR.",
+      },
+      { property: "og:title", content: "Kitap Bilim Merkezi" },
+      { property: "og:description", content: "Курсы английского языка по стандартам CEFR." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background font-sans antialiased">
+      <Header />
+      <main>
+        <Hero />
+        <Courses />
+        <Teachers />
+        <About />
+        <News />
+        <Faq />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
