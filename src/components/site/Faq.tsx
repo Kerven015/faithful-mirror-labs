@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { FAQ } from "./data";
+import { useI18n } from "./i18n";
 
 export function Faq() {
+  const { t } = useI18n();
   const [open, setOpen] = useState(0);
   return (
     <section id="faq" className="px-5 lg:px-10 py-20 lg:py-28">
       <div className="mx-auto max-w-5xl">
         <p className="text-sm font-medium text-brand uppercase tracking-wider text-center">
-          Часто задаваемые вопросы
+          {t.faq.eyebrow}
         </p>
         <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-center">
-          Вопрос-ответ
+          {t.faq.title}
         </h2>
-        <p className="mt-5 text-center text-foreground/60 max-w-2xl mx-auto">
-          Есть вопросы? Ознакомьтесь с нашим списком часто задаваемых вопросов ниже — возможно, ваш вопрос уже имеет ответ!
-        </p>
+        <p className="mt-5 text-center text-foreground/60 max-w-2xl mx-auto">{t.faq.subtitle}</p>
         <div className="mt-12 flex flex-col gap-3">
-          {FAQ.map((item, i) => {
+          {t.faq.items.map((item, i) => {
             const isOpen = open === i;
             return (
               <div

@@ -1,5 +1,5 @@
-import { NEWS } from "./data";
 import { ArrowUpRight } from "lucide-react";
+import { useI18n } from "./i18n";
 
 const COVERS = [
   "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&auto=format&fit=crop&q=70",
@@ -15,12 +15,13 @@ const COVERS = [
 ];
 
 export function News() {
-  const [feature, ...rest] = NEWS;
+  const { t } = useI18n();
+  const [feature, ...rest] = t.newsItems;
   return (
     <section id="news" className="px-5 lg:px-10 py-20 lg:py-28 bg-surface">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-          Последние новости и события
+          {t.news.title}
         </h2>
 
         <div className="mt-12 grid lg:grid-cols-2 gap-8">
