@@ -21,8 +21,7 @@ export function Header() {
     const id = href.replace("#", "");
     const el = id === "top" ? document.body : document.getElementById(id);
     if (el) {
-      const top = id === "top" ? 0 : el.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     setOpen(false);
   };
