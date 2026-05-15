@@ -104,13 +104,6 @@ export function Header() {
                 </button>
               ))}
             </div>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground text-center"
-            >
-              {t.login}
-            </a>
           </div>
         </div>
       )}
