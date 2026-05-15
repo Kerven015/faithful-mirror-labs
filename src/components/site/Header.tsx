@@ -88,7 +88,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background animate-fade-in">
+        <div className="lg:hidden border-t border-border bg-background animate-slide-in-right">
           <div className="px-5 py-4 flex flex-col gap-1">
             {NAV.map((item) => (
               <a
