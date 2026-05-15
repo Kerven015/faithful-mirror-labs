@@ -95,7 +95,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="py-3 text-[15px] font-medium text-foreground/80"
               >
                 {item.label}
