@@ -40,35 +40,31 @@ export function Header() {
           <div className="relative">
             <button
               onClick={() => setLangOpen((v) => !v)}
-              onBlur={() => setTimeout(() => setLangOpen(false), 150)}
               className="flex items-center gap-1.5 text-[15px] font-medium text-foreground/80 hover:text-brand transition-colors"
             >
               {current.label}
               <ChevronDown className="h-4 w-4" />
             </button>
             {langOpen && (
-              <div className="absolute right-0 mt-3 w-36 rounded-xl border border-border bg-card shadow-lg overflow-hidden animate-fade-in">
-                {LANGS.filter((l) => l.code !== lang).map((l) => (
-                  <button
-                    key={l.code}
-                    onMouseDown={() => {
-                      setLang(l.code as Lang);
-                      setLangOpen(false);
-                    }}
-                    className="block w-full px-4 py-2.5 text-left text-sm hover:bg-brand-soft hover:text-brand transition-colors"
-                  >
-                    {l.label}
-                  </button>
-                ))}
-              </div>
+              <>
+                <div className="fixed inset-0 z-10" onClick={() => setLangOpen(false)} />
+                <div className="absolute right-0 mt-3 w-36 rounded-xl border border-border bg-card shadow-lg overflow-hidden animate-fade-in z-20">
+                  {LANGS.filter((l) => l.code !== lang).map((l) => (
+                    <button
+                      key={l.code}
+                      onClick={() => {
+                        setLang(l.code as Lang);
+                        setLangOpen(false);
+                      }}
+                      className="block w-full px-4 py-2.5 text-left text-sm hover:bg-brand-soft hover:text-brand transition-colors"
+                    >
+                      {l.label}
+                    </button>
+                  ))}
+                </div>
+              </>
             )}
           </div>
-          <a
-            href="#contact"
-            className="rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-brand-foreground hover:opacity-90 transition-opacity"
-          >
-            {t.login}
-          </a>
         </div>
 
         <button
@@ -108,13 +104,6 @@ export function Header() {
                 </button>
               ))}
             </div>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground text-center"
-            >
-              {t.login}
-            </a>
           </div>
         </div>
       )}
