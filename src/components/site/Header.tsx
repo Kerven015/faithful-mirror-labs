@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-mark.png";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useI18n, LANGS, Lang } from "./i18n";
 
