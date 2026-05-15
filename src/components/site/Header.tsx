@@ -19,8 +19,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/85 backdrop-blur-md border-b border-border/60">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-10">
-        <a href="#top" className="flex items-center">
-          <img src={logo} alt="Kitap" className="h-9 w-auto" />
+        <a href="#top" className="flex items-center gap-2.5">
+          <img src={logo} alt="Kitap" className="h-10 w-auto" />
+          <span className="text-2xl font-bold text-brand tracking-tight">Kitap</span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-10">
