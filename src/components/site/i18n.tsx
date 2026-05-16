@@ -62,6 +62,29 @@ type Dict = {
     privacy: string;
   };
   newsItems: { title: string; desc: string; date: string }[];
+  downloadGuide: {
+    title: string;
+    subtitle: string;
+    backHome: string;
+    detected: string;
+    desktopLabel: string;
+    mobileLabel: string;
+    desktopTitle: string;
+    mobileTitle: string;
+    step1Title: string;
+    step1Desc: string;
+    step2Title: string;
+    step2Desc: string;
+    step3Title: string;
+    step3Desc: string;
+    mobileNote: string;
+    mobileOption1Title: string;
+    mobileOption1Desc: string;
+    mobileOption2Title: string;
+    mobileOption2Desc: string;
+    publishedTitle: string;
+    publishedDesc: string;
+  };
 };
 
 const ru: Dict = {
@@ -170,6 +193,29 @@ const ru: Dict = {
     { title: "Дебат-клуб", desc: "Тема: Education for the Future.", date: "14 октября 2025" },
     { title: "Онлайн-платформа Kitap", desc: "Все материалы доступны онлайн.", date: "14 октября 2025" },
   ],
+  downloadGuide: {
+    title: "Как скачать этот проект",
+    subtitle: "Следуйте шагам ниже, чтобы сохранить весь исходный код в виде ZIP-архива.",
+    backHome: "На главную",
+    detected: "Обнаружено устройство:",
+    desktopLabel: "Компьютер",
+    mobileLabel: "Телефон",
+    desktopTitle: "Инструкция для компьютера",
+    mobileTitle: "Инструкция для телефона",
+    step1Title: "Откройте редактор кода",
+    step1Desc: "Нажмите на иконку редактора кода ( </> ) вверху окна предпросмотра.",
+    step2Title: "Найдите кнопку загрузки",
+    step2Desc: "В боковой панели слева прокрутите в самый низ списка файлов.",
+    step3Title: "Скачайте ZIP-архив",
+    step3Desc: 'Нажмите кнопку "Download codebase". Браузер сохранит весь проект в виде ZIP-файла.',
+    mobileNote: "Прямая загрузка ZIP недоступна в мобильном редакторе.",
+    mobileOption1Title: "Используйте компьютер",
+    mobileOption1Desc: "Откройте этот проект в браузере на компьютере и выполните шаги для компьютера выше.",
+    mobileOption2Title: "Подключите GitHub",
+    mobileOption2Desc: "Нажмите кнопку Plus (+) в чате → GitHub → Connect project. После подключения вы сможете клонировать или скачать репозиторий с GitHub в любое время.",
+    publishedTitle: "Уже опубликовано?",
+    publishedDesc: "Если приложение уже опубликовано, вы также можете поделиться прямой ссылкой через меню Publish.",
+  },
 };
 
 const en: Dict = {
@@ -278,6 +324,29 @@ const en: Dict = {
     { title: "First Debate Club session", desc: "Students discussed Education for the Future.", date: "October 14, 2025" },
     { title: "Kitap launched an online platform", desc: "All materials and assignments are now online.", date: "October 14, 2025" },
   ],
+  downloadGuide: {
+    title: "How to download this project",
+    subtitle: "Follow the steps below to save the full source code as a ZIP file.",
+    backHome: "Back to home",
+    detected: "Detected device:",
+    desktopLabel: "Desktop",
+    mobileLabel: "Mobile",
+    desktopTitle: "Desktop instructions",
+    mobileTitle: "Mobile instructions",
+    step1Title: "Open the Code Editor",
+    step1Desc: "Click the Code Editor icon ( </> ) at the top of the preview window.",
+    step2Title: "Find the download button",
+    step2Desc: "In the file tree sidebar on the left, scroll all the way to the bottom.",
+    step3Title: "Download the ZIP",
+    step3Desc: "Click the \"Download codebase\" button. Your browser will save the entire project as a ZIP file.",
+    mobileNote: "ZIP download is not available directly from the mobile editor.",
+    mobileOption1Title: "Use a desktop browser",
+    mobileOption1Desc: "Open this project on a computer and follow the desktop steps above.",
+    mobileOption2Title: "Connect to GitHub",
+    mobileOption2Desc: "Tap the Plus (+) button in chat → GitHub → Connect project. Once linked, you can clone or download the repository from GitHub at any time.",
+    publishedTitle: "Already published?",
+    publishedDesc: "If your app is already published, you can also share the live link with others from the Publish menu.",
+  },
 };
 
 const tm: Dict = {
@@ -386,6 +455,29 @@ const tm: Dict = {
     { title: "Debate Club ilkinji ýygnak", desc: "Tema: Education for the Future.", date: "14 oktýabr 2025" },
     { title: "Onlaýn platforma açyldy", desc: "Ähli materiallar onlaýn elýeterli.", date: "14 oktýabr 2025" },
   ],
+  downloadGuide: {
+    title: "Bu taslamany näme ýüklemeli",
+    subtitle: "Doly çeşme koduny ZIP faýl hökmünde ýatda saklamak üçin aşakdaky ädimleri ýerine ýetiriň.",
+    backHome: "Baş sahypa",
+    detected: "Anykulan enjamyňyz:",
+    desktopLabel: "Kompyuter",
+    mobileLabel: "Telefon",
+    desktopTitle: "Kompyuter üçin görkezme",
+    mobileTitle: "Telefon üçin görkezme",
+    step1Title: "Kod redaktoruny açyň",
+    step1Desc: "Öňünden görmek penjiresiniň ýokarsyndaky kod redaktorunyň nyşanyna ( </> ) basyň.",
+    step2Title: "Ýükleme düwmesini tapyň",
+    step2Desc: "Çepdäki faýl agajy panelinde aşak tarapa çemenligi ýokarylyk bilen aşak sürüň.",
+    step3Title: "ZIP faýlyny ýükleň",
+    step3Desc: '"Download codebase" düwmesine basyň. Brauzeriňiz taslamanyň tutdygyny ZIP faýl hökmünde ýatda saklar.',
+    mobileNote: "ZIP faýlyny göni telefon redaktorundan ýüklemek mümkin däl.",
+    mobileOption1Title: "Kompyuter brauzerini ulaný",
+    mobileOption1Desc: "Bu taslamany kompyuterdeki brauzerde açyň we ýokardaky kompyuter ädimlerini ýerine ýetiriň.",
+    mobileOption2Title: "GitHub baglaň",
+    mobileOption2Desc: "Çatdaky Plus (+) düwmesine basyň → GitHub → Connect project. Baglanyşykdan soň, GitHub-dan repozitoriýany islän wagtyňyz klonlap ýa-da ýükläp bilersiňiz.",
+    publishedTitle: "Eýýäm çap edildimi?",
+    publishedDesc: "Programma eýýäm çap edilse, Publish menýusy arkaly beýlekiler bilen göni çeligi paýlaşyp bilersiňiz.",
+  },
 };
 
 const DICTS: Record<Lang, Dict> = { ru, en, tm };

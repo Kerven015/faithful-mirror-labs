@@ -1,4 +1,5 @@
 import logo from "@/assets/logo.png";
+import { Link } from "@tanstack/react-router";
 import { useI18n } from "./i18n";
 
 export function Footer() {
@@ -17,6 +18,7 @@ export function Footer() {
             <li><a href="#courses" className="hover:text-brand">{t.nav.courses}</a></li>
             <li><a href="#teachers" className="hover:text-brand">{t.nav.teachers}</a></li>
             <li><a href="#contact" className="hover:text-brand">{t.nav.contact}</a></li>
+            <li><Link to="/download-guide" className="hover:text-brand">{t.downloadGuide?.title || "Download Guide"}</Link></li>
           </ul>
         </div>
         <div>
