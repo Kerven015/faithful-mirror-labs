@@ -62,6 +62,29 @@ type Dict = {
     privacy: string;
   };
   newsItems: { title: string; desc: string; date: string }[];
+  downloadGuide: {
+    title: string;
+    subtitle: string;
+    backHome: string;
+    detected: string;
+    desktopLabel: string;
+    mobileLabel: string;
+    desktopTitle: string;
+    mobileTitle: string;
+    step1Title: string;
+    step1Desc: string;
+    step2Title: string;
+    step2Desc: string;
+    step3Title: string;
+    step3Desc: string;
+    mobileNote: string;
+    mobileOption1Title: string;
+    mobileOption1Desc: string;
+    mobileOption2Title: string;
+    mobileOption2Desc: string;
+    publishedTitle: string;
+    publishedDesc: string;
+  };
 };
 
 const ru: Dict = {
