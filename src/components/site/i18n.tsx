@@ -93,7 +93,7 @@ const ru: Dict = {
   login: "Войти",
   hero: { title: "Эффект начинается здесь — будь его частью с Kitap", sound: "Звук" },
   courses: {
-    title: "Наши курсы предназначены для детей, подростков и взрослых",
+    title: "Наши курсы предназначены для детей и взрослых",
     subtitle: "Мы обучаем английскому языку по международным стандартам CEFR, помогая вам пройти путь от новичка до свободного владения.",
     audAll: "Все",
     audKids: "Дети",
@@ -224,7 +224,7 @@ const en: Dict = {
   login: "Sign in",
   hero: { title: "The effect starts here — be a part of it with Kitap", sound: "Sound" },
   courses: {
-    title: "Our courses are designed for children, teens and adults",
+    title: "Our courses are designed for children and adults",
     subtitle: "We teach English following the CEFR international standards, taking you from beginner to fluent.",
     audAll: "All",
     audKids: "Kids",
@@ -355,7 +355,7 @@ const tm: Dict = {
   login: "Girmek",
   hero: { title: "Täsir şu ýerden başlanýar — Kitap bilen bile boluň", sound: "Ses" },
   courses: {
-    title: "Kurslarymyz çagalar, ýetginjekler we ulular üçin",
+    title: "Kurslarymyz çagalar we ulular üçin",
     subtitle: "Iňlis dilini halkara CEFR ülňülerine görä öwredýäris — başlangyçdan erkin derejä çenli.",
     audAll: "Hemmesi",
     audKids: "Çagalar",
