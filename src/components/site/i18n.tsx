@@ -88,7 +88,7 @@ type Dict = {
 };
 
 const ru: Dict = {
-  nav: { about: "О нас", courses: "Курсы", teachers: "Преподаватели", contact: "Связаться с нами" },
+  nav: { about: "О нас", courses: "Курсы", teachers: "Преподаватели", contact: "Связаться с нами", mainMenu: "Главное меню" },
   langName: "Русский",
   login: "Войти",
   hero: { title: "Эффект начинается здесь — будь его частью с Kitap", sound: "Звук" },
@@ -219,7 +219,7 @@ const ru: Dict = {
 };
 
 const en: Dict = {
-  nav: { about: "About", courses: "Courses", teachers: "Teachers", contact: "Contact" },
+  nav: { about: "About", courses: "Courses", teachers: "Teachers", contact: "Contact", mainMenu: "Main menu" },
   langName: "English",
   login: "Sign in",
   hero: { title: "The effect starts here — be a part of it with Kitap", sound: "Sound" },
@@ -350,7 +350,7 @@ const en: Dict = {
 };
 
 const tm: Dict = {
-  nav: { about: "Biz hakda", courses: "Kurslar", teachers: "Mugallymlar", contact: "Habarlaşmak" },
+  nav: { about: "Biz hakda", courses: "Kurslar", teachers: "Mugallymlar", contact: "Habarlaşmak", mainMenu: "Baş menýu" },
   langName: "Türkmen",
   login: "Girmek",
   hero: { title: "Täsir şu ýerden başlanýar — Kitap bilen bile boluň", sound: "Ses" },
