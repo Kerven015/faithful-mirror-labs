@@ -3,7 +3,7 @@ import { COURSES, TEACHERS, Audience, Level, Schedule, Shift } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
 import { useI18n } from "./i18n";
 
-const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults", "teens"];
+const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
 const LEVELS: Level[] = ["Beginner", "Elementary", "Pre-intermediate", "Intermediate", "Upper-intermediate", "Advanced", "Toefl"];
 const DAYS: Schedule[] = ["mwf", "tts"];
 const SHIFTS: Shift[] = ["morning", "afternoon", "evening"];
@@ -30,7 +30,7 @@ export function Courses() {
   );
 
   const audLabel = (a: "All" | Audience) =>
-    a === "All" ? t.courses.audAll : a === "kids" ? t.courses.audKids : a === "teens" ? t.courses.audTeens : t.courses.audAdults;
+    a === "All" ? t.courses.audAll : a === "kids" ? t.courses.audKids : t.courses.audAdults;
 
   return (
     <section id="courses" className="px-5 lg:px-10 py-20 lg:py-28">

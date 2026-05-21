@@ -1,6 +1,6 @@
 export type Schedule = "mwf" | "tts";
 export type Shift = "morning" | "afternoon" | "evening";
-export type Audience = "kids" | "teens" | "adults";
+export type Audience = "kids" | "adults";
 export type Level = "Beginner" | "Elementary" | "Pre-intermediate" | "Intermediate" | "Upper-intermediate" | "Advanced" | "Toefl";
 
 export type Course = {
@@ -48,17 +48,17 @@ const RAW: [string, Level, Audience, Schedule, Shift, string][] = [
   ["Family and Friends 1 for kids, Spring 26, Evening, TTS", "Beginner", "kids", "tts", "evening", "Aysenem Begmyradova"],
   ["Headway Intermediate for adults, Spring 26, Morning, MWF", "Intermediate", "adults", "mwf", "morning", "Abdyrahym Agajykov"],
   ["Headway Intermediate for adults, Spring 26, Afternoon, MWF", "Intermediate", "adults", "mwf", "afternoon", "Myrat Amangulyyev"],
-  ["Oxford Discover 2 for teens, Spring 26, Evening, MWF", "Elementary", "teens", "mwf", "evening", "Myrat Amangulyyev"],
+  ["Oxford Discover 2 for adults, Spring 26, Evening, MWF", "Elementary", "adults", "mwf", "evening", "Myrat Amangulyyev"],
   ["Headway Pre-Intermediate for adults, Spring 26, Evening, MWF", "Pre-intermediate", "adults", "mwf", "evening", "Muhammet Ballyyev"],
   ["Headway Beginner for adults, Spring 26, Evening, TTS", "Beginner", "adults", "tts", "evening", "Muhammet Ballyyev"],
   ["Headway Intermediate for adults, Spring 26, Evening, MWF", "Intermediate", "adults", "mwf", "evening", "Kemal Nuryagdyyev"],
   ["Headway Elementary for adults, Spring 26, Afternoon, MWF", "Elementary", "adults", "mwf", "afternoon", "Kemal Nuryagdyyev"],
   ["Headway Upper-Intermediate, Spring 26, Afternoon, TTS", "Upper-intermediate", "adults", "tts", "afternoon", "Kemal Nuryagdyyev"],
-  ["Oxford Discover 1 for teens, Spring 26, Afternoon, MWF", "Elementary", "teens", "mwf", "afternoon", "Dushmuhammet Mammedov"],
-  ["Oxford Discover 3 for teens, Spring 26, Morning, TTS", "Pre-intermediate", "teens", "tts", "morning", "Dushmuhammet Mammedov"],
+  ["Oxford Discover 1 for adults, Spring 26, Afternoon, MWF", "Elementary", "adults", "mwf", "afternoon", "Dushmuhammet Mammedov"],
+  ["Oxford Discover 3 for adults, Spring 26, Morning, TTS", "Pre-intermediate", "adults", "tts", "morning", "Dushmuhammet Mammedov"],
   ["English File Intermediate plus, Spring 26, Evening, MWF", "Upper-intermediate", "adults", "mwf", "evening", "Dushmuhammet Mammedov"],
   ["Oxford Phonics World 2 for kids, Spring 26, Evening, TTS", "Beginner", "kids", "tts", "evening", "Maysa Nazarova"],
-  ["Oxford Discover 2 for teens, Spring 26, Morning, MWF", "Elementary", "teens", "mwf", "morning", "Maysa Nazarova"],
+  ["Oxford Discover 2 for adults, Spring 26, Morning, MWF", "Elementary", "adults", "mwf", "morning", "Maysa Nazarova"],
   ["Family and Friends 1 for kids, Spring 26, Afternoon, MWF", "Beginner", "kids", "mwf", "afternoon", "Maysa Nazarova"],
   ["Headway Pre-Intermediate, Spring 26, Morning, TTS", "Pre-intermediate", "adults", "tts", "morning", "Myahri Allaberdiyeva"],
   ["Headway Elementary for adults, Spring 26, Evening, TTS", "Elementary", "adults", "tts", "evening", "Merjen Akyyeva"],
