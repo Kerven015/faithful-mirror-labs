@@ -3,7 +3,7 @@ import { createContext, useContext, useState, ReactNode } from "react";
 export type Lang = "ru" | "en" | "tm";
 
 type Dict = {
-  nav: { about: string; courses: string; teachers: string; contact: string };
+  nav: { about: string; courses: string; teachers: string; contact: string; mainMenu: string };
   langName: string;
   login: string;
   hero: { title: string; sound: string };
