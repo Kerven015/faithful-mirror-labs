@@ -12,7 +12,6 @@ type Dict = {
     subtitle: string;
     audAll: string;
     audKids: string;
-    audTeens: string;
     audAdults: string;
     levelAll: string;
     teacherAll: string;
@@ -97,7 +96,6 @@ const ru: Dict = {
     subtitle: "Мы обучаем английскому языку по международным стандартам CEFR, помогая вам пройти путь от новичка до свободного владения.",
     audAll: "Все",
     audKids: "Дети",
-    audTeens: "Подростки",
     audAdults: "Взрослые",
     levelAll: "Все уровни",
     teacherAll: "Все преподаватели",
@@ -132,7 +130,7 @@ const ru: Dict = {
       {
         title: "Наши курсы",
         body: "В Kitap мы предлагаем широкий выбор курсов, соответствующих современным образовательным требованиям.",
-        bullets: ["Курсы английского для всех уровней.", "Подготовка к IELTS и TOEFL.", "Интенсивные курсы.", "Развитие коммуникативных навыков.", "Программы для всех возрастов."],
+        bullets: ["Курсы английского для всех уровней.", "Подготовка к IELTS и TOEFL.", "Интенсивные курсы.", "Развитие коммуникативных навыков.", "Программы для детей и взрослых."],
       },
       {
         title: "Почему выбирают нас",
@@ -228,7 +226,6 @@ const en: Dict = {
     subtitle: "We teach English following the CEFR international standards, taking you from beginner to fluent.",
     audAll: "All",
     audKids: "Kids",
-    audTeens: "Teens",
     audAdults: "Adults",
     levelAll: "All levels",
     teacherAll: "All teachers",
@@ -263,7 +260,7 @@ const en: Dict = {
       {
         title: "Our courses",
         body: "Kitap offers a wide range of courses that meet today's educational demands.",
-        bullets: ["English courses for all levels.", "IELTS and TOEFL preparation.", "Intensive Russian courses.", "Communication skills programmes.", "Programmes for kids, teens and adults."],
+        bullets: ["English courses for all levels.", "IELTS and TOEFL preparation.", "Intensive Russian courses.", "Communication skills programmes.", "Programmes for kids and adults."],
       },
       {
         title: "Why choose us",
@@ -359,7 +356,6 @@ const tm: Dict = {
     subtitle: "Iňlis dilini halkara CEFR ülňülerine görä öwredýäris — başlangyçdan erkin derejä çenli.",
     audAll: "Hemmesi",
     audKids: "Çagalar",
-    audTeens: "Ýetginjekler",
     audAdults: "Ulular",
     levelAll: "Ähli derejeler",
     teacherAll: "Ähli mugallymlar",
@@ -394,7 +390,7 @@ const tm: Dict = {
       {
         title: "Kurslarymyz",
         body: "Kitap döwrebap talaplara laýyk gelýän giň kurslar hödürleýär.",
-        bullets: ["Ähli derejeler üçin iňlis dili.", "IELTS we TOEFL taýýarlygy.", "Çalt netijeli intensiw kurslar.", "Aragatnaşyk başarnyklary.", "Çagalar, ýetginjekler we ulular üçin."],
+        bullets: ["Ähli derejeler üçin iňlis dili.", "IELTS we TOEFL taýýarlygy.", "Çalt netijeli intensiw kurslar.", "Aragatnaşyk başarnyklary.", "Çagalar we ulular üçin."],
       },
       {
         title: "Näme üçin bizi saýlaýarlar",
