@@ -10,6 +10,7 @@ export function Header() {
   const current = LANGS.find((l) => l.code === lang)!;
 
   const NAV = [
+    { href: "#top", label: t.nav.mainMenu },
     { href: "#about", label: t.nav.about },
     { href: "#courses", label: t.nav.courses },
     { href: "#teachers", label: t.nav.teachers },
