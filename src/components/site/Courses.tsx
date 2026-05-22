@@ -56,28 +56,6 @@ export function Courses() {
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <Select
-            value={level}
-            onChange={(v) => setLevel(v as Level | "")}
-            options={[{ v: "", l: "All levels" }, ...LEVELS.map((l) => ({ v: l, l }))]}
-          />
-          <Select
-            value={teacher}
-            onChange={setTeacher}
-            options={[{ v: "", l: t.courses.teacherAll }, ...TEACHERS.map((tt) => ({ v: tt.name, l: tt.name }))]}
-          />
-          <Select
-            value={day}
-            onChange={(v) => setDay(v as Schedule | "")}
-            options={[{ v: "", l: t.courses.daysAll }, ...DAYS.map((d) => ({ v: d, l: t.courses.days[d] }))]}
-          />
-          <Select
-            value={shift}
-            onChange={(v) => setShift(v as Shift | "")}
-            options={[{ v: "", l: t.courses.shiftsAll }, ...SHIFTS.map((s) => ({ v: s, l: t.courses.shifts[s] }))]}
-          />
-        </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((c) => (
