@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
 import { useI18n } from "./i18n";
+import { BookSlider } from "./BookSlider";
+
 
 const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
 
@@ -41,6 +43,12 @@ export function Courses() {
             </button>
           ))}
         </div>
+
+        <div className="mt-14">
+          <BookSlider />
+        </div>
+
+
 
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
