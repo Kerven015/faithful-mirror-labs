@@ -1,36 +1,22 @@
 import { useMemo, useState } from "react";
-import { COURSES, TEACHERS, Audience, Level, Schedule, Shift } from "./data";
+import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
 import { useI18n } from "./i18n";
 
 const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
-const LEVELS: Level[] = ["Beginner", "Elementary", "Pre-intermediate", "Intermediate", "Upper-intermediate", "Advanced", "Toefl"];
-const DAYS: Schedule[] = ["mwf", "tts"];
-const SHIFTS: Shift[] = ["morning", "afternoon", "evening"];
 
 export function Courses() {
   const { t, lang } = useI18n();
   const [audience, setAudience] = useState<"All" | Audience>("All");
-  const [level, setLevel] = useState<"" | Level>("");
-  const [teacher, setTeacher] = useState("");
-  const [day, setDay] = useState<"" | Schedule>("");
-  const [shift, setShift] = useState<"" | Shift>("");
 
   const filtered = useMemo(
-    () =>
-      COURSES.filter(
-        (c) =>
-          (audience === "All" || c.audience === audience) &&
-          (!level || c.level === level) &&
-          (!teacher || c.teacher === teacher) &&
-          (!day || c.schedule === day) &&
-          (!shift || c.shift === shift),
-      ),
-    [audience, level, teacher, day, shift],
+    () => COURSES.filter((c) => audience === "All" || c.audience === audience),
+    [audience],
   );
 
   const audLabel = (a: "All" | Audience) =>
     a === "All" ? t.courses.audAll : a === "kids" ? t.courses.audKids : t.courses.audAdults;
+
 
   return (
     <section id="courses" className="px-5 lg:px-10 py-20 lg:py-28">
