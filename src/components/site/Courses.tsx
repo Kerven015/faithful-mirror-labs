@@ -1,36 +1,22 @@
 import { useMemo, useState } from "react";
-import { COURSES, TEACHERS, Audience, Level, Schedule, Shift } from "./data";
+import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
 import { useI18n } from "./i18n";
 
 const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
-const LEVELS: Level[] = ["Beginner", "Elementary", "Pre-intermediate", "Intermediate", "Upper-intermediate", "Advanced", "Toefl"];
-const DAYS: Schedule[] = ["mwf", "tts"];
-const SHIFTS: Shift[] = ["morning", "afternoon", "evening"];
 
 export function Courses() {
   const { t, lang } = useI18n();
   const [audience, setAudience] = useState<"All" | Audience>("All");
-  const [level, setLevel] = useState<"" | Level>("");
-  const [teacher, setTeacher] = useState("");
-  const [day, setDay] = useState<"" | Schedule>("");
-  const [shift, setShift] = useState<"" | Shift>("");
 
   const filtered = useMemo(
-    () =>
-      COURSES.filter(
-        (c) =>
-          (audience === "All" || c.audience === audience) &&
-          (!level || c.level === level) &&
-          (!teacher || c.teacher === teacher) &&
-          (!day || c.schedule === day) &&
-          (!shift || c.shift === shift),
-      ),
-    [audience, level, teacher, day, shift],
+    () => COURSES.filter((c) => audience === "All" || c.audience === audience),
+    [audience],
   );
 
   const audLabel = (a: "All" | Audience) =>
     a === "All" ? t.courses.audAll : a === "kids" ? t.courses.audKids : t.courses.audAdults;
+
 
   return (
     <section id="courses" className="px-5 lg:px-10 py-20 lg:py-28">
@@ -56,28 +42,6 @@ export function Courses() {
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <Select
-            value={level}
-            onChange={(v) => setLevel(v as Level | "")}
-            options={[{ v: "", l: "All levels" }, ...LEVELS.map((l) => ({ v: l, l }))]}
-          />
-          <Select
-            value={teacher}
-            onChange={setTeacher}
-            options={[{ v: "", l: t.courses.teacherAll }, ...TEACHERS.map((tt) => ({ v: tt.name, l: tt.name }))]}
-          />
-          <Select
-            value={day}
-            onChange={(v) => setDay(v as Schedule | "")}
-            options={[{ v: "", l: t.courses.daysAll }, ...DAYS.map((d) => ({ v: d, l: t.courses.days[d] }))]}
-          />
-          <Select
-            value={shift}
-            onChange={(v) => setShift(v as Shift | "")}
-            options={[{ v: "", l: t.courses.shiftsAll }, ...SHIFTS.map((s) => ({ v: s, l: t.courses.shifts[s] }))]}
-          />
-        </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((c) => (
@@ -135,39 +99,3 @@ export function Courses() {
   );
 }
 
-function Select({
-  value,
-  onChange,
-  options,
-}: {
-  value: string;
-  onChange: (v: string) => void;
-  options: { v: string; l: string }[];
-}) {
-  return (
-    <div className="relative">
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none rounded-full border border-border bg-card px-5 py-3 pr-10 text-sm text-foreground/80 hover:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/30 transition-colors"
-      >
-        {options.map((o) => (
-          <option key={o.v} value={o.v}>
-            {o.l}
-          </option>
-        ))}
-      </select>
-      <svg
-        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/50"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fillRule="evenodd"
-          d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
-          clipRule="evenodd"
-        />
-      </svg>
-    </div>
-  );
-}
