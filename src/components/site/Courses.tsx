@@ -60,7 +60,7 @@ export function Courses() {
           <Select
             value={level}
             onChange={(v) => setLevel(v as Level | "")}
-            options={[{ v: "", l: t.courses.levelAll }, ...LEVELS.map((l) => ({ v: l, l }))]}
+            options={[{ v: "", l: "All levels" }, ...LEVELS.map((l) => ({ v: l, l }))]}
           />
           <Select
             value={teacher}
@@ -97,7 +97,7 @@ export function Courses() {
                     {audLabel(c.audience)}
                   </span>
                   <span className="rounded-full bg-brand text-brand-foreground px-3 py-1 text-xs font-medium">
-                    {t.courses.levels[c.level]}
+                    {c.level}
                   </span>
                 </div>
               </div>
