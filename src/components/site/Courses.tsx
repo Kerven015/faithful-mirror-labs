@@ -60,7 +60,7 @@ export function Courses() {
           <Select
             value={level}
             onChange={(v) => setLevel(v as Level | "")}
-            options={[{ v: "", l: t.courses.levelAll }, ...LEVELS.map((l) => ({ v: l, l: t.courses.levels[l] }))]}
+            options={[{ v: "", l: t.courses.levelAll }, ...LEVELS.map((l) => ({ v: l, l }))]}
           />
           <Select
             value={teacher}
