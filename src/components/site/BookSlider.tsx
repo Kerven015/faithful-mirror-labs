@@ -5,8 +5,14 @@ import book2 from "@/assets/books/book-2.webp";
 import book3 from "@/assets/books/book-3.webp";
 import book4 from "@/assets/books/book-4.webp";
 import book5 from "@/assets/books/book-5.webp";
+import book6 from "@/assets/books/book-6.webp";
+import book7 from "@/assets/books/book-7.webp";
+import book8 from "@/assets/books/book-8.webp";
+import book9 from "@/assets/books/book-9.webp";
 
-const BOOKS = [
+type Book = { src: string; alt: string };
+
+const DEFAULT_BOOKS: Book[] = [
   { src: book1, alt: "English File Beginner" },
   { src: book2, alt: "Practical English" },
   { src: book3, alt: "I love cooking" },
@@ -14,7 +20,15 @@ const BOOKS = [
   { src: book5, alt: "A new life in the USA" },
 ];
 
-export function BookSlider() {
+export const SECONDARY_BOOKS: Book[] = [
+  { src: book6, alt: "English File Elementary" },
+  { src: book7, alt: "New Year's Eve story" },
+  { src: book8, alt: "Making music" },
+  { src: book9, alt: "Britain: the good & the bad" },
+];
+
+export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
+  const BOOKS = books;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timer = useRef<number | null>(null);
