@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
 import { useI18n } from "./i18n";
-import { BookSlider } from "./BookSlider";
+import { BookSlider, SECONDARY_BOOKS } from "./BookSlider";
 
 
 const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
