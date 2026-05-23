@@ -9,6 +9,11 @@ import book6 from "@/assets/books/book-6.webp";
 import book7 from "@/assets/books/book-7.webp";
 import book8 from "@/assets/books/book-8.webp";
 import book9 from "@/assets/books/book-9.webp";
+import book10 from "@/assets/books/book-10.webp";
+import book11 from "@/assets/books/book-11.webp";
+import book12 from "@/assets/books/book-12.webp";
+import book13 from "@/assets/books/book-13.webp";
+import book14 from "@/assets/books/book-14.webp";
 
 type Book = { src: string; alt: string };
 
@@ -25,6 +30,14 @@ export const SECONDARY_BOOKS: Book[] = [
   { src: book7, alt: "New Year's Eve story" },
   { src: book8, alt: "Making music" },
   { src: book9, alt: "Britain: the good & the bad" },
+];
+
+export const TERTIARY_BOOKS: Book[] = [
+  { src: book10, alt: "English File Pre-intermediate" },
+  { src: book11, alt: "Practical English Restaurant" },
+  { src: book12, alt: "Revise and Check" },
+  { src: book13, alt: "Murphy's Law" },
+  { src: book14, alt: "One dark October evening" },
 ];
 
 export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
