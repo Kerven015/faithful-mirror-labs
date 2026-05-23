@@ -48,6 +48,10 @@ export function Courses() {
           <BookSlider />
         </div>
 
+        <div className="mt-14">
+          <BookSlider books={SECONDARY_BOOKS} />
+        </div>
+
 
 
 
