@@ -19,6 +19,11 @@ import book16 from "@/assets/books/book-16.webp";
 import book17 from "@/assets/books/book-17.webp";
 import book18 from "@/assets/books/book-18.webp";
 import book19 from "@/assets/books/book-19.webp";
+import book20 from "@/assets/books/book-20.webp";
+import book21 from "@/assets/books/book-21.webp";
+import book22 from "@/assets/books/book-22.webp";
+import book23 from "@/assets/books/book-23.webp";
+import book24 from "@/assets/books/book-24.webp";
 
 type Book = { src: string; alt: string };
 
@@ -51,6 +56,14 @@ export const QUATERNARY_BOOKS: Book[] = [
   { src: book17, alt: "The UK student site — Reading & Speaking" },
   { src: book18, alt: "Changing lives — Grammar" },
   { src: book19, alt: "In the Dragons' Den — Reading" },
+];
+
+export const QUINARY_BOOKS: Book[] = [
+  { src: book20, alt: "English File Upper-intermediate Student's Book & Workbook" },
+  { src: book21, alt: "Narrative tenses — easyJet story" },
+  { src: book22, alt: "Reading — Extreme sports" },
+  { src: book23, alt: "Used to / be used to / get used to" },
+  { src: book24, alt: "Vocabulary — Weather & Climate Stories" },
 ];
 
 export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {

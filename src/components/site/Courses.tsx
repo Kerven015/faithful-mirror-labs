@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User } from "lucide-react";
 import { useI18n } from "./i18n";
-import { BookSlider, SECONDARY_BOOKS, TERTIARY_BOOKS, QUATERNARY_BOOKS } from "./BookSlider";
+import { BookSlider, SECONDARY_BOOKS, TERTIARY_BOOKS, QUATERNARY_BOOKS, QUINARY_BOOKS } from "./BookSlider";
 
 
 const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
@@ -58,6 +58,10 @@ export function Courses() {
 
         <div className="mt-14">
           <BookSlider books={QUATERNARY_BOOKS} />
+        </div>
+
+        <div className="mt-14">
+          <BookSlider books={QUINARY_BOOKS} />
         </div>
 
 
