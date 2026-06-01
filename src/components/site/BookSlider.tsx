@@ -14,6 +14,11 @@ import book11 from "@/assets/books/book-11.webp";
 import book12 from "@/assets/books/book-12.webp";
 import book13 from "@/assets/books/book-13.webp";
 import book14 from "@/assets/books/book-14.webp";
+import book15 from "@/assets/books/book-15.webp";
+import book16 from "@/assets/books/book-16.webp";
+import book17 from "@/assets/books/book-17.webp";
+import book18 from "@/assets/books/book-18.webp";
+import book19 from "@/assets/books/book-19.webp";
 
 type Book = { src: string; alt: string };
 
@@ -38,6 +43,14 @@ export const TERTIARY_BOOKS: Book[] = [
   { src: book12, alt: "Revise and Check" },
   { src: book13, alt: "Murphy's Law" },
   { src: book14, alt: "One dark October evening" },
+];
+
+export const QUATERNARY_BOOKS: Book[] = [
+  { src: book15, alt: "English File Intermediate Student's Book & Workbook" },
+  { src: book16, alt: "Going the extra mile — Reading" },
+  { src: book17, alt: "The UK student site — Reading & Speaking" },
+  { src: book18, alt: "Changing lives — Grammar" },
+  { src: book19, alt: "In the Dragons' Den — Reading" },
 ];
 
 export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
