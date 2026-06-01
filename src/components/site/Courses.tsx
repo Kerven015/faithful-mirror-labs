@@ -1,24 +1,41 @@
 import { useMemo, useState } from "react";
 import { COURSES, Audience } from "./data";
-import { Calendar, Clock, User } from "lucide-react";
+import { Calendar, Clock, User, ChevronDown } from "lucide-react";
 import { useI18n } from "./i18n";
 import { BookSlider, SECONDARY_BOOKS, TERTIARY_BOOKS, QUATERNARY_BOOKS, QUINARY_BOOKS, SENARY_BOOKS } from "./BookSlider";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
 
 const AUDIENCES: ("All" | Audience)[] = ["All", "kids", "adults"];
 
+type CourseCategory = "All" | "English" | "Chinese" | "Computer";
+const COURSE_CATEGORIES: CourseCategory[] = ["All", "English", "Chinese", "Computer"];
+
 export function Courses() {
   const { t, lang } = useI18n();
   const [audience, setAudience] = useState<"All" | Audience>("All");
+  const [category, setCategory] = useState<CourseCategory>("All");
+  const [catOpen, setCatOpen] = useState(false);
 
   const filtered = useMemo(
-    () => COURSES.filter((c) => audience === "All" || c.audience === audience),
-    [audience],
+    () =>
+      COURSES.filter((c) => {
+        if (audience !== "All" && c.audience !== audience) return false;
+        if (category !== "All") {
+          if (category === "English") return true; // existing catalog is English-learning
+          return c.title.toLowerCase().includes(category.toLowerCase());
+        }
+        return true;
+      }),
+    [audience, category],
   );
 
   const audLabel = (a: "All" | Audience) =>
     a === "All" ? t.courses.audAll : a === "kids" ? t.courses.audKids : t.courses.audAdults;
 
+  const baseBtn = "rounded-full px-5 py-2 text-sm font-medium transition-colors";
+  const activeBtn = "bg-brand text-brand-foreground";
+  const inactiveBtn = "bg-surface text-foreground/70 hover:bg-brand-soft";
 
   return (
     <section id="courses" className="px-5 lg:px-10 py-20 lg:py-28">
@@ -33,15 +50,50 @@ export function Courses() {
             <button
               key={a}
               onClick={() => setAudience(a)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-                audience === a
-                  ? "bg-brand text-brand-foreground"
-                  : "bg-surface text-foreground/70 hover:bg-brand-soft"
-              }`}
+              className={`${baseBtn} ${audience === a ? activeBtn : inactiveBtn}`}
             >
               {audLabel(a)}
             </button>
           ))}
+
+          <Popover open={catOpen} onOpenChange={setCatOpen}>
+            <PopoverTrigger asChild>
+              <button
+                className={`${baseBtn} inline-flex items-center gap-1.5 ${
+                  category !== "All" ? activeBtn : inactiveBtn
+                }`}
+              >
+                {category === "All" ? "Courses" : category}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${catOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent
+              align="start"
+              sideOffset={8}
+              className="w-44 p-1.5 rounded-2xl border border-border bg-card shadow-xl"
+            >
+              <div className="flex flex-col">
+                {COURSE_CATEGORIES.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => {
+                      setCategory(c);
+                      setCatOpen(false);
+                    }}
+                    className={`text-left rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                      category === c
+                        ? "bg-brand text-brand-foreground"
+                        : "text-foreground/80 hover:bg-brand-soft"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
 
         <div className="mt-14">
