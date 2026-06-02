@@ -96,6 +96,12 @@ export function Courses() {
             </PopoverContent>
           </Popover>
         </div>
+        {category === "All" && (
+          <div className="mt-14 animate-fade-in">
+            <BookSlider books={ALL_BOOKS} />
+          </div>
+        )}
+
         {category !== "All" && (() => {
           type Carousel = { lang: Exclude<CourseCategory, "All">; books?: Parameters<typeof BookSlider>[0]["books"] };
           const carousels: Carousel[] = [
