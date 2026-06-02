@@ -29,6 +29,12 @@ import book26 from "@/assets/books/book-26.webp";
 import book27 from "@/assets/books/book-27.webp";
 import book28 from "@/assets/books/book-28.webp";
 import book29 from "@/assets/books/book-29.webp";
+import allBook1 from "@/assets/books/all-book-1.webp.asset.json";
+import allBook2 from "@/assets/books/all-book-2.webp.asset.json";
+import allBook3 from "@/assets/books/all-book-3.webp.asset.json";
+import allBook4 from "@/assets/books/all-book-4.webp.asset.json";
+import allBook5 from "@/assets/books/all-book-5.webp.asset.json";
+import allBook6 from "@/assets/books/all-book-6.webp.asset.json";
 
 type Book = { src: string; alt: string };
 
