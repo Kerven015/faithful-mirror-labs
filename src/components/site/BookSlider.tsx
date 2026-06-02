@@ -85,6 +85,15 @@ export const SENARY_BOOKS: Book[] = [
   { src: book29, alt: "A masterpiece? — Perception and sensation" },
 ];
 
+export const ALL_BOOKS: Book[] = [
+  { src: allBook1.url, alt: "English File Beginner — Student's Book & Workbook" },
+  { src: allBook2.url, alt: "English File Elementary — Student's Book & Workbook" },
+  { src: allBook3.url, alt: "English File Pre-intermediate — Student's Book & Workbook" },
+  { src: allBook4.url, alt: "English File Intermediate — Student's Book & Workbook" },
+  { src: allBook5.url, alt: "English File Upper-intermediate — Student's Book & Workbook" },
+  { src: allBook6.url, alt: "English File Advanced — Student's Book & Workbook" },
+];
+
 export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
   const BOOKS = books;
   const [index, setIndex] = useState(0);
