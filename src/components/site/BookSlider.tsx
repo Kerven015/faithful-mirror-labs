@@ -29,6 +29,12 @@ import book26 from "@/assets/books/book-26.webp";
 import book27 from "@/assets/books/book-27.webp";
 import book28 from "@/assets/books/book-28.webp";
 import book29 from "@/assets/books/book-29.webp";
+import allBook1 from "@/assets/books/all-book-1.webp.asset.json";
+import allBook2 from "@/assets/books/all-book-2.webp.asset.json";
+import allBook3 from "@/assets/books/all-book-3.webp.asset.json";
+import allBook4 from "@/assets/books/all-book-4.webp.asset.json";
+import allBook5 from "@/assets/books/all-book-5.webp.asset.json";
+import allBook6 from "@/assets/books/all-book-6.webp.asset.json";
 
 type Book = { src: string; alt: string };
 
@@ -77,6 +83,15 @@ export const SENARY_BOOKS: Book[] = [
   { src: book27, alt: "Unreal uses of past tenses — Shop small and local" },
   { src: book28, alt: "The School of Life — Compound adjectives" },
   { src: book29, alt: "A masterpiece? — Perception and sensation" },
+];
+
+export const ALL_BOOKS: Book[] = [
+  { src: allBook1.url, alt: "English File Beginner — Student's Book & Workbook" },
+  { src: allBook2.url, alt: "English File Elementary — Student's Book & Workbook" },
+  { src: allBook3.url, alt: "English File Pre-intermediate — Student's Book & Workbook" },
+  { src: allBook4.url, alt: "English File Intermediate — Student's Book & Workbook" },
+  { src: allBook5.url, alt: "English File Upper-intermediate — Student's Book & Workbook" },
+  { src: allBook6.url, alt: "English File Advanced — Student's Book & Workbook" },
 ];
 
 export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {

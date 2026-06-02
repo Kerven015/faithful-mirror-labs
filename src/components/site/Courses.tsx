@@ -3,7 +3,7 @@ import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User, ChevronDown } from "lucide-react";
 import { useI18n } from "./i18n";
 
-import { BookSlider, SECONDARY_BOOKS, TERTIARY_BOOKS, QUATERNARY_BOOKS, QUINARY_BOOKS, SENARY_BOOKS } from "./BookSlider";
+import { BookSlider, SECONDARY_BOOKS, TERTIARY_BOOKS, QUATERNARY_BOOKS, QUINARY_BOOKS, SENARY_BOOKS, ALL_BOOKS } from "./BookSlider";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
 
@@ -96,6 +96,12 @@ export function Courses() {
             </PopoverContent>
           </Popover>
         </div>
+        {category === "All" && (
+          <div className="mt-14 animate-fade-in">
+            <BookSlider books={ALL_BOOKS} />
+          </div>
+        )}
+
         {category !== "All" && (() => {
           type Carousel = { lang: Exclude<CourseCategory, "All">; books?: Parameters<typeof BookSlider>[0]["books"] };
           const carousels: Carousel[] = [
