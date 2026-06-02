@@ -3,6 +3,7 @@ import { COURSES, Audience } from "./data";
 import { Calendar, Clock, User, ChevronDown } from "lucide-react";
 import { useI18n } from "./i18n";
 
+import { BookSlider, SECONDARY_BOOKS, TERTIARY_BOOKS, QUATERNARY_BOOKS, QUINARY_BOOKS, SENARY_BOOKS } from "./BookSlider";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
 
