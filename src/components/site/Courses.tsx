@@ -96,9 +96,30 @@ export function Courses() {
             </PopoverContent>
           </Popover>
         </div>
-
-
-
+        {category !== "All" && (() => {
+          type Carousel = { lang: Exclude<CourseCategory, "All">; books?: Parameters<typeof BookSlider>[0]["books"] };
+          const carousels: Carousel[] = [
+            { lang: "English" },
+            { lang: "English", books: SECONDARY_BOOKS },
+            { lang: "English", books: TERTIARY_BOOKS },
+            { lang: "English", books: QUATERNARY_BOOKS },
+            { lang: "English", books: QUINARY_BOOKS },
+            { lang: "English", books: SENARY_BOOKS },
+          ];
+          const visible = carousels.filter((c) => c.lang === category);
+          if (visible.length === 0) {
+            return (
+              <div key={category} className="mt-14 animate-fade-in rounded-3xl border border-dashed border-border bg-card/40 p-12 text-center text-foreground/60">
+                {category} courses coming soon.
+              </div>
+            );
+          }
+          return visible.map((c, i) => (
+            <div key={`${category}-${c.lang}-${i}`} className="mt-14 animate-fade-in" data-language={c.lang}>
+              <BookSlider books={c.books} />
+            </div>
+          ));
+        })()}
 
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
