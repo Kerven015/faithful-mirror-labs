@@ -17,6 +17,24 @@ export function Courses() {
   const [audience, setAudience] = useState<"All" | Audience>("All");
   const [category, setCategory] = useState<CourseCategory>("All");
   const [catOpen, setCatOpen] = useState(false);
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+
+  const handleBookClick = (book: { targetId?: string }) => {
+    if (!book.targetId) return;
+    if (category !== "English" || audience !== "adults") {
+      setCategory("English");
+      setAudience("adults");
+    }
+    const scrollTo = () => {
+      const el = document.getElementById(book.targetId!);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setHighlightedId(book.targetId!);
+      window.setTimeout(() => setHighlightedId((cur) => (cur === book.targetId ? null : cur)), 1800);
+    };
+    // wait for the English Adult section to mount if filters just changed
+    window.setTimeout(scrollTo, 80);
+  };
 
   const filtered = useMemo(
     () =>
@@ -98,19 +116,19 @@ export function Courses() {
         </div>
         {category === "All" && (
           <div className="mt-14 animate-fade-in">
-            <BookSlider books={ALL_BOOKS} />
+            <BookSlider books={ALL_BOOKS} onBookClick={handleBookClick} />
           </div>
         )}
 
         {category === "English" && audience === "adults" && (() => {
-          type Carousel = { lang: Exclude<CourseCategory, "All">; books?: Parameters<typeof BookSlider>[0]["books"] };
+          type Carousel = { lang: Exclude<CourseCategory, "All">; books?: Parameters<typeof BookSlider>[0]["books"]; id: string };
           const carousels: Carousel[] = [
-            { lang: "English" },
-            { lang: "English", books: SECONDARY_BOOKS },
-            { lang: "English", books: TERTIARY_BOOKS },
-            { lang: "English", books: QUATERNARY_BOOKS },
-            { lang: "English", books: QUINARY_BOOKS },
-            { lang: "English", books: SENARY_BOOKS },
+            { lang: "English", id: "ef-beginner" },
+            { lang: "English", books: SECONDARY_BOOKS, id: "ef-elementary" },
+            { lang: "English", books: TERTIARY_BOOKS, id: "ef-pre-intermediate" },
+            { lang: "English", books: QUATERNARY_BOOKS, id: "ef-intermediate" },
+            { lang: "English", books: QUINARY_BOOKS, id: "ef-upper-intermediate" },
+            { lang: "English", books: SENARY_BOOKS, id: "ef-advanced" },
           ];
           return (
             <>
@@ -126,7 +144,14 @@ export function Courses() {
                 </p>
               </div>
               {carousels.map((c, i) => (
-                <div key={`${category}-${c.lang}-${i}`} className="mt-14 animate-fade-in" data-language={c.lang}>
+                <div
+                  key={`${category}-${c.lang}-${i}`}
+                  id={c.id}
+                  className={`mt-14 animate-fade-in rounded-3xl transition-all duration-700 scroll-mt-24 ${
+                    highlightedId === c.id ? "ring-4 ring-brand/60 bg-brand-soft/40 shadow-2xl" : "ring-0"
+                  }`}
+                  data-language={c.lang}
+                >
                   <BookSlider books={c.books} />
                 </div>
               ))}
