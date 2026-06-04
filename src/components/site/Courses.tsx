@@ -114,9 +114,15 @@ export function Courses() {
           ];
           return (
             <>
-              <div className="mt-14 max-w-4xl animate-fade-in">
-                <p className="text-lg text-foreground/70 leading-relaxed">
-                  English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.
+              <div className="mt-16 mx-auto max-w-4xl text-center animate-fade-in">
+                <span className="inline-block rounded-full bg-brand-soft px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand">
+                  {t.englishFile.eyebrow}
+                </span>
+                <h3 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
+                  {t.englishFile.heading}
+                </h3>
+                <p className="mt-6 text-lg sm:text-xl text-foreground/70 leading-relaxed">
+                  {t.englishFile.body}
                 </p>
               </div>
               {carousels.map((c, i) => (

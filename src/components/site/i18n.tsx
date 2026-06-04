@@ -25,6 +25,7 @@ type Dict = {
     currency: string;
     cefrDesc: string;
   };
+  englishFile: { eyebrow: string; heading: string; body: string };
   teachers: { title: string; experience: string; experienceTag: string; load: string; years: (n: number) => string };
   about: {
     eyebrow: string;
@@ -214,6 +215,11 @@ const ru: Dict = {
     publishedTitle: "Уже опубликовано?",
     publishedDesc: "Если приложение уже опубликовано, вы также можете поделиться прямой ссылкой через меню Publish.",
   },
+  englishFile: {
+    eyebrow: "Рекомендуемая серия учебников",
+    heading: "Почему мы выбрали English File",
+    body: "English File — одна из самых надёжных программ изучения английского языка в мире. Её сбалансированный подход к разговорной речи, аудированию, чтению и письму помогает студентам быстрее прогрессировать и обретать уверенность в реальном общении. Именно поэтому она является основной серией учебников на наших курсах.",
+  },
 };
 
 const en: Dict = {
@@ -344,6 +350,11 @@ const en: Dict = {
     publishedTitle: "Already published?",
     publishedDesc: "If your app is already published, you can also share the live link with others from the Publish menu.",
   },
+  englishFile: {
+    eyebrow: "Featured textbook series",
+    heading: "Why we teach with English File",
+    body: "English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.",
+  },
 };
 
 const tm: Dict = {
@@ -473,6 +484,11 @@ const tm: Dict = {
     mobileOption2Desc: "Çatdaky Plus (+) düwmesine basyň → GitHub → Connect project. Baglanyşykdan soň, GitHub-dan repozitoriýany islän wagtyňyz klonlap ýa-da ýükläp bilersiňiz.",
     publishedTitle: "Eýýäm çap edildimi?",
     publishedDesc: "Programma eýýäm çap edilse, Publish menýusy arkaly beýlekiler bilen göni çeligi paýlaşyp bilersiňiz.",
+  },
+  englishFile: {
+    eyebrow: "Esasy okuw kitaplary",
+    heading: "Näme üçin English File bilen öwredýäris",
+    body: "English File — dünýäde iňlis dilini öwrenmek üçin iň ynamdar maksatnamalaryň biridir. Onuň gepleşik, diňleýiş, okaýyş we ýazuw boýunça deňagramly çemeleşmesi okuwçylara has çalt ösmäge we hakyky durmuşda ynamly gürleşmäge kömek edýär. Şonuň üçin bu seriýa kurslarymyzyň esasy okuw kitaplary hökmünde ulanylýar.",
   },
 };
 
