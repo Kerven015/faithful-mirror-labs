@@ -36,7 +36,7 @@ import allBook4 from "@/assets/books/all-book-4.webp.asset.json";
 import allBook5 from "@/assets/books/all-book-5.webp.asset.json";
 import allBook6 from "@/assets/books/all-book-6.webp.asset.json";
 
-type Book = { src: string; alt: string };
+type Book = { src: string; alt: string; targetId?: string };
 
 const DEFAULT_BOOKS: Book[] = [
   { src: book1, alt: "English File Beginner" },
@@ -86,15 +86,21 @@ export const SENARY_BOOKS: Book[] = [
 ];
 
 export const ALL_BOOKS: Book[] = [
-  { src: allBook1.url, alt: "English File Beginner — Student's Book & Workbook" },
-  { src: allBook2.url, alt: "English File Elementary — Student's Book & Workbook" },
-  { src: allBook3.url, alt: "English File Pre-intermediate — Student's Book & Workbook" },
-  { src: allBook4.url, alt: "English File Intermediate — Student's Book & Workbook" },
-  { src: allBook5.url, alt: "English File Upper-intermediate — Student's Book & Workbook" },
-  { src: allBook6.url, alt: "English File Advanced — Student's Book & Workbook" },
+  { src: allBook1.url, alt: "English File Beginner — Student's Book & Workbook", targetId: "ef-beginner" },
+  { src: allBook2.url, alt: "English File Elementary — Student's Book & Workbook", targetId: "ef-elementary" },
+  { src: allBook3.url, alt: "English File Pre-intermediate — Student's Book & Workbook", targetId: "ef-pre-intermediate" },
+  { src: allBook4.url, alt: "English File Intermediate — Student's Book & Workbook", targetId: "ef-intermediate" },
+  { src: allBook5.url, alt: "English File Upper-intermediate — Student's Book & Workbook", targetId: "ef-upper-intermediate" },
+  { src: allBook6.url, alt: "English File Advanced — Student's Book & Workbook", targetId: "ef-advanced" },
 ];
 
-export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
+export function BookSlider({
+  books = DEFAULT_BOOKS,
+  onBookClick,
+}: {
+  books?: Book[];
+  onBookClick?: (book: Book, index: number) => void;
+}) {
   const BOOKS = books;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -145,9 +151,13 @@ export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
                 pointerEvents: isActive ? "auto" : "none",
               }}
             >
-              <div
-                className={`group overflow-hidden rounded-2xl bg-card shadow-2xl ring-1 ring-border transition-transform duration-500 ${
-                  isActive ? "hover:scale-[1.03]" : ""
+              <button
+                type="button"
+                onClick={() => isActive && onBookClick?.(b, i)}
+                aria-label={b.alt}
+                tabIndex={isActive ? 0 : -1}
+                className={`group block overflow-hidden rounded-2xl bg-card shadow-2xl ring-1 ring-border transition-transform duration-500 ${
+                  isActive && onBookClick ? "cursor-pointer hover:scale-[1.03]" : isActive ? "hover:scale-[1.03]" : ""
                 }`}
               >
                 <img
@@ -156,7 +166,7 @@ export function BookSlider({ books = DEFAULT_BOOKS }: { books?: Book[] }) {
                   loading="lazy"
                   className="block h-[300px] sm:h-[380px] lg:h-[420px] w-auto max-w-[80vw] object-contain"
                 />
-              </div>
+              </button>
             </div>
           );
         })}
