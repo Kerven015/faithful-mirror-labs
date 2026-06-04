@@ -485,6 +485,11 @@ const tm: Dict = {
     publishedTitle: "Eýýäm çap edildimi?",
     publishedDesc: "Programma eýýäm çap edilse, Publish menýusy arkaly beýlekiler bilen göni çeligi paýlaşyp bilersiňiz.",
   },
+  englishFile: {
+    eyebrow: "Esasy okuw kitaplary",
+    heading: "Näme üçin English File bilen öwredýäris",
+    body: "English File — dünýäde iňlis dilini öwrenmek üçin iň ynamdar maksatnamalaryň biridir. Onuň gepleşik, diňleýiş, okaýyş we ýazuw boýunça deňagramly çemeleşmesi okuwçylara has çalt ösmäge we hakyky durmuşda ynamly gürleşmäge kömek edýär. Şonuň üçin bu seriýa kurslarymyzyň esasy okuw kitaplary hökmünde ulanylýar.",
+  },
 };
 
 const DICTS: Record<Lang, Dict> = { ru, en, tm };
