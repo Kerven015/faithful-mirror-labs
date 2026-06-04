@@ -25,6 +25,7 @@ type Dict = {
     currency: string;
     cefrDesc: string;
   };
+  englishFile: { eyebrow: string; heading: string; body: string };
   teachers: { title: string; experience: string; experienceTag: string; load: string; years: (n: number) => string };
   about: {
     eyebrow: string;
