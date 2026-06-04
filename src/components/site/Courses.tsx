@@ -112,11 +112,20 @@ export function Courses() {
             { lang: "English", books: QUINARY_BOOKS },
             { lang: "English", books: SENARY_BOOKS },
           ];
-          return carousels.map((c, i) => (
-            <div key={`${category}-${c.lang}-${i}`} className="mt-14 animate-fade-in" data-language={c.lang}>
-              <BookSlider books={c.books} />
-            </div>
-          ));
+          return (
+            <>
+              <div className="mt-14 max-w-4xl animate-fade-in">
+                <p className="text-lg text-foreground/70 leading-relaxed">
+                  English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.
+                </p>
+              </div>
+              {carousels.map((c, i) => (
+                <div key={`${category}-${c.lang}-${i}`} className="mt-14 animate-fade-in" data-language={c.lang}>
+                  <BookSlider books={c.books} />
+                </div>
+              ))}
+            </>
+          );
         })()}
 
 
