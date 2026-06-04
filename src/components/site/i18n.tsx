@@ -350,6 +350,11 @@ const en: Dict = {
     publishedTitle: "Already published?",
     publishedDesc: "If your app is already published, you can also share the live link with others from the Publish menu.",
   },
+  englishFile: {
+    eyebrow: "Featured textbook series",
+    heading: "Why we teach with English File",
+    body: "English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.",
+  },
 };
 
 const tm: Dict = {
