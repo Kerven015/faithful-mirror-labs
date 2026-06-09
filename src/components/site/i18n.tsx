@@ -550,6 +550,32 @@ const tm: Dict = {
     heading: "Näme üçin English File bilen öwredýäris",
     body: "English File — dünýäde iňlis dilini öwrenmek üçin iň ynamdar maksatnamalaryň biridir. Onuň gepleşik, diňleýiş, okaýyş we ýazuw boýunça deňagramly çemeleşmesi okuwçylara has çalt ösmäge we hakyky durmuşda ynamly gürleşmäge kömek edýär. Şonuň üçin bu seriýa kurslarymyzyň esasy okuw kitaplary hökmünde ulanylýar.",
   },
+  efLevels: {
+    beginner: {
+      title: "English File — Başlangyç",
+      description: "Oxford-yň English File Beginner seriýasy (3-nji we 5-nji neşirleri öz içine alýar) mugallymlar tarapyndan başlangyç okuwçylar üçin gyzykly, gurluşly we kommunikatiw esas hökmünde ýokary baha berilýär. Esasan gepleşige, gündelik söz baýlygyna we sözleýişe ünsi jemleýär, ýöne mugallymyň gözegçiliginden başga ýagdaýda öz-özüne öwrenmek üçin çäkli.",
+    },
+    elementary: {
+      title: "English File — Ilkinji",
+      description: "Oxford University Press-iň English File Elementary (CEFR A1) okuwçylary aktiw gepledýän gyzykly, kommunikatiw we gurluşly iňlis dili kursy hökmünde mugallymlar tarapyndan ýokary baha berilýär. Maksatnama grammatika, söz baýlygy we sözleýişi deňagramly birleşdirýär we döwrebap multimedia çeşmelerini ulanýar.",
+    },
+    preIntermediate: {
+      title: "English File — Orta öň",
+      description: "Oxford-yň English File Pre-Intermediate okuwçylary A2 derejesinden B1 derejesine geçirmek üçin niýetlenen meşhur ESL/EFL okuw kitabydyr. Gyzykly temalary we gepleşige berýän güýçli ünsi sebäpli ýokary baha berilýär; grammatika, söz baýlygy we başarnyk ösüşi boýunça deňagramly öwredýär.",
+    },
+    intermediate: {
+      title: "English File — Orta",
+      description: "Oxford-yň English File Intermediate okuwçylary üstünlikli gepledýändigi bilen tanalýan, ýokary baha berilýän gurluşly okuw kitabydyr. Mugallymlar grammatika, söz baýlygy, sözleýiş we dört başarnygyň deňagramly birleşdirilişine üns berýärler. Pop-medeniýet bilen baglanyşykly okaýyş temalary höwesi ýokary saklaýar.",
+    },
+    upperIntermediate: {
+      title: "English File — Orta üst",
+      description: "Oxford-yň English File Upper-Intermediate deňagramly maksatnamasy we gepleşige berilen ünsi bilen tanalýan meşhur, doly ESL okuw kitabydyr. Mugallymlar we özbaşdak öwrenýänler onuň gyzykly mazmunyny we aýdyň gurluşyny mydama goldaýarlar, emma hakyky erkin gepleşik üçin synpdan daşary köp tejribe gerek.",
+    },
+    advanced: {
+      title: "English File — Ýokary",
+      description: "Oxford-yň English File Advanced seriýasy gyzykly, gepleşige esaslanýan çemeleşmesi üçin mugallymlar we okuwçylar tarapyndan ýokary baha berilýär. C1–C2 derejesi üçin niýetlenen bolup, grammatika, söz baýlygy we sözleýişi birleşdirýär; käbirleri onuň pop-medeniýet tekstlerini arassa akademiki çeşmelerden az berk hasaplaýar.",
+    },
+  },
 };
 
 const DICTS: Record<Lang, Dict> = { ru, en, tm };
