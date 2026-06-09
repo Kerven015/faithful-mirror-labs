@@ -121,14 +121,61 @@ export function Courses() {
         )}
 
         {category === "English" && audience === "adults" && (() => {
-          type Carousel = { lang: Exclude<CourseCategory, "All">; books?: Parameters<typeof BookSlider>[0]["books"]; id: string };
+          type Carousel = {
+            lang: Exclude<CourseCategory, "All">;
+            books?: Parameters<typeof BookSlider>[0]["books"];
+            id: string;
+            title: string;
+            description: string;
+          };
           const carousels: Carousel[] = [
-            { lang: "English", id: "ef-beginner" },
-            { lang: "English", books: SECONDARY_BOOKS, id: "ef-elementary" },
-            { lang: "English", books: TERTIARY_BOOKS, id: "ef-pre-intermediate" },
-            { lang: "English", books: QUATERNARY_BOOKS, id: "ef-intermediate" },
-            { lang: "English", books: QUINARY_BOOKS, id: "ef-upper-intermediate" },
-            { lang: "English", books: SENARY_BOOKS, id: "ef-advanced" },
+            {
+              lang: "English",
+              id: "ef-beginner",
+              title: "English File Beginner",
+              description:
+                "Oxford`s English File Beginner series (covering editions 3 through 5) is widely praised by educators as a highly engaging, structured, and communicative foundation for absolute learners. It focuses heavily on speaking, practical everyday vocabulary, and pronunciation, though its standalone value is somewhat limited without active teacher guidance.",
+            },
+            {
+              lang: "English",
+              books: SECONDARY_BOOKS,
+              id: "ef-elementary",
+              title: "English File Elementary",
+              description:
+                "Oxford University Press's English File Elementary (CEFR Level A1) is widely praised by educators as an engaging, communicative, and highly structured English course. The curriculum balances grammar, vocabulary, and pronunciation while utilizing dynamic multimedia resources to get students actively talking.",
+            },
+            {
+              lang: "English",
+              books: TERTIARY_BOOKS,
+              id: "ef-pre-intermediate",
+              title: "English File Pre-Intermediate",
+              description:
+                "Oxford's English File Pre-Intermediate is a highly popular ESL/EFL textbook designed to take students from an A2 to B1 level of fluency. Widely praised for its engaging topics and strong focus on speaking and pronunciation, the series offers a well-rounded balance of grammar, vocabulary, and skills development.",
+            },
+            {
+              lang: "English",
+              books: QUATERNARY_BOOKS,
+              id: "ef-intermediate",
+              title: "English File Intermediate",
+              description:
+                "Oxford's English File Intermediate is a highly praised, structured coursebook renowned for successfully getting students speaking. Educators on WordPress and reviewers on BEBC highlight its balanced mix of grammar, vocabulary, pronunciation, and four-skill development. It features engaging, pop-culture-oriented reading topics that keep learners motivated.",
+            },
+            {
+              lang: "English",
+              books: QUINARY_BOOKS,
+              id: "ef-upper-intermediate",
+              title: "English File Upper-Intermediate",
+              description:
+                "Oxford's English File Upper-Intermediate is a highly popular, comprehensive ESL textbook renowned for its balanced syllabus and emphasis on speaking. Teachers and self-learners consistently praise its engaging content and highly structured format, though critics note that true fluency requires extensive practice beyond the classroom.",
+            },
+            {
+              lang: "English",
+              books: SENARY_BOOKS,
+              id: "ef-advanced",
+              title: "English File Advanced",
+              description:
+                "Oxford`s English File Advanced series is highly praised by educators and learners for its engaging, conversation-driven approach. Tailored for C1-C2 proficiency, it blends grammar, vocabulary, and pronunciation, though some find its pop-culture texts less rigorous than purely academic resources.",
+            },
           ];
           return (
             <>
@@ -147,11 +194,19 @@ export function Courses() {
                 <div
                   key={`${category}-${c.lang}-${i}`}
                   id={c.id}
-                  className={`mt-14 animate-fade-in rounded-3xl transition-all duration-700 scroll-mt-24 ${
+                  className={`mt-20 animate-fade-in rounded-3xl transition-all duration-700 scroll-mt-24 ${
                     highlightedId === c.id ? "ring-4 ring-brand/60 bg-brand-soft/40 shadow-2xl" : "ring-0"
                   }`}
                   data-language={c.lang}
                 >
+                  <div className="mx-auto max-w-3xl text-center px-4 mb-10 animate-fade-in">
+                    <h4 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-brand via-foreground to-brand bg-clip-text text-transparent">
+                      {c.title}
+                    </h4>
+                    <p className="mt-5 text-base sm:text-lg text-foreground/70 leading-relaxed">
+                      {c.description}
+                    </p>
+                  </div>
                   <BookSlider books={c.books} />
                 </div>
               ))}
