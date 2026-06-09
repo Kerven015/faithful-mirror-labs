@@ -389,6 +389,32 @@ const en: Dict = {
     heading: "Why we teach with English File",
     body: "English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.",
   },
+  efLevels: {
+    beginner: {
+      title: "English File Beginner",
+      description: "Oxford's English File Beginner series (covering editions 3 through 5) is widely praised by educators as a highly engaging, structured, and communicative foundation for absolute learners. It focuses heavily on speaking, practical everyday vocabulary, and pronunciation, though its standalone value is somewhat limited without active teacher guidance.",
+    },
+    elementary: {
+      title: "English File Elementary",
+      description: "Oxford University Press's English File Elementary (CEFR Level A1) is widely praised by educators as an engaging, communicative, and highly structured English course. The curriculum balances grammar, vocabulary, and pronunciation while utilizing dynamic multimedia resources to get students actively talking.",
+    },
+    preIntermediate: {
+      title: "English File Pre-Intermediate",
+      description: "Oxford's English File Pre-Intermediate is a highly popular ESL/EFL textbook designed to take students from an A2 to B1 level of fluency. Widely praised for its engaging topics and strong focus on speaking and pronunciation, the series offers a well-rounded balance of grammar, vocabulary, and skills development.",
+    },
+    intermediate: {
+      title: "English File Intermediate",
+      description: "Oxford's English File Intermediate is a highly praised, structured coursebook renowned for successfully getting students speaking. Educators on WordPress and reviewers on BEBC highlight its balanced mix of grammar, vocabulary, pronunciation, and four-skill development. It features engaging, pop-culture-oriented reading topics that keep learners motivated.",
+    },
+    upperIntermediate: {
+      title: "English File Upper-Intermediate",
+      description: "Oxford's English File Upper-Intermediate is a highly popular, comprehensive ESL textbook renowned for its balanced syllabus and emphasis on speaking. Teachers and self-learners consistently praise its engaging content and highly structured format, though critics note that true fluency requires extensive practice beyond the classroom.",
+    },
+    advanced: {
+      title: "English File Advanced",
+      description: "Oxford's English File Advanced series is highly praised by educators and learners for its engaging, conversation-driven approach. Tailored for C1-C2 proficiency, it blends grammar, vocabulary, and pronunciation, though some find its pop-culture texts less rigorous than purely academic resources.",
+    },
+  },
 };
 
 const tm: Dict = {
