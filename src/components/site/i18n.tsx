@@ -26,6 +26,14 @@ type Dict = {
     cefrDesc: string;
   };
   englishFile: { eyebrow: string; heading: string; body: string };
+  efLevels: {
+    beginner: { title: string; description: string };
+    elementary: { title: string; description: string };
+    preIntermediate: { title: string; description: string };
+    intermediate: { title: string; description: string };
+    upperIntermediate: { title: string; description: string };
+    advanced: { title: string; description: string };
+  };
   teachers: { title: string; experience: string; experienceTag: string; load: string; years: (n: number) => string };
   about: {
     eyebrow: string;
@@ -220,6 +228,32 @@ const ru: Dict = {
     heading: "Почему мы выбрали English File",
     body: "English File — одна из самых надёжных программ изучения английского языка в мире. Её сбалансированный подход к разговорной речи, аудированию, чтению и письму помогает студентам быстрее прогрессировать и обретать уверенность в реальном общении. Именно поэтому она является основной серией учебников на наших курсах.",
   },
+  efLevels: {
+    beginner: {
+      title: "English File — Начальный уровень",
+      description: "Серия Oxford English File Beginner (издания 3–5) высоко ценится преподавателями как увлекательная, структурированная и коммуникативная основа для абсолютных новичков. Особое внимание уделяется разговорной речи, повседневной лексике и произношению, хотя её самостоятельная ценность ограничена без активного участия преподавателя.",
+    },
+    elementary: {
+      title: "English File — Элементарный уровень",
+      description: "Oxford English File Elementary (уровень CEFR A1) высоко оценивается педагогами как увлекательный, коммуникативный и хорошо структурированный курс английского языка. Программа сочетает грамматику, лексику и произношение, используя динамичные мультимедийные ресурсы, чтобы студенты активно говорили.",
+    },
+    preIntermediate: {
+      title: "English File — Ниже среднего",
+      description: "Oxford English File Pre-Intermediate — популярный учебник ESL/EFL, разработанный для перехода с уровня A2 на B1. Серия получила высокую оценку за увлекательные темы и сильный акцент на разговорной речи и произношении, предлагая сбалансированное сочетание грамматики, лексики и развития навыков.",
+    },
+    intermediate: {
+      title: "English File — Средний уровень",
+      description: "Oxford English File Intermediate — высоко оцениваемый и хорошо структурированный учебник, известный тем, что успешно учит студентов говорить. Преподаватели и рецензенты отмечают сбалансированное сочетание грамматики, лексики, произношения и развития четырёх навыков. Темы для чтения связаны с поп-культурой и поддерживают мотивацию.",
+    },
+    upperIntermediate: {
+      title: "English File — Выше среднего",
+      description: "Oxford English File Upper-Intermediate — популярный и комплексный учебник ESL, известный сбалансированной программой и акцентом на разговорной речи. Преподаватели и самоучки ценят его увлекательное содержание и чёткую структуру, хотя для подлинной беглости требуется активная практика вне класса.",
+    },
+    advanced: {
+      title: "English File — Продвинутый уровень",
+      description: "Oxford English File Advanced высоко оценивается преподавателями и учениками за увлекательный, разговорный подход. Курс рассчитан на уровни C1–C2 и сочетает грамматику, лексику и произношение, хотя некоторые считают его тексты о поп-культуре менее академичными, чем чисто научные ресурсы.",
+    },
+  },
 };
 
 const en: Dict = {
@@ -355,6 +389,32 @@ const en: Dict = {
     heading: "Why we teach with English File",
     body: "English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.",
   },
+  efLevels: {
+    beginner: {
+      title: "English File Beginner",
+      description: "Oxford's English File Beginner series (covering editions 3 through 5) is widely praised by educators as a highly engaging, structured, and communicative foundation for absolute learners. It focuses heavily on speaking, practical everyday vocabulary, and pronunciation, though its standalone value is somewhat limited without active teacher guidance.",
+    },
+    elementary: {
+      title: "English File Elementary",
+      description: "Oxford University Press's English File Elementary (CEFR Level A1) is widely praised by educators as an engaging, communicative, and highly structured English course. The curriculum balances grammar, vocabulary, and pronunciation while utilizing dynamic multimedia resources to get students actively talking.",
+    },
+    preIntermediate: {
+      title: "English File Pre-Intermediate",
+      description: "Oxford's English File Pre-Intermediate is a highly popular ESL/EFL textbook designed to take students from an A2 to B1 level of fluency. Widely praised for its engaging topics and strong focus on speaking and pronunciation, the series offers a well-rounded balance of grammar, vocabulary, and skills development.",
+    },
+    intermediate: {
+      title: "English File Intermediate",
+      description: "Oxford's English File Intermediate is a highly praised, structured coursebook renowned for successfully getting students speaking. Educators on WordPress and reviewers on BEBC highlight its balanced mix of grammar, vocabulary, pronunciation, and four-skill development. It features engaging, pop-culture-oriented reading topics that keep learners motivated.",
+    },
+    upperIntermediate: {
+      title: "English File Upper-Intermediate",
+      description: "Oxford's English File Upper-Intermediate is a highly popular, comprehensive ESL textbook renowned for its balanced syllabus and emphasis on speaking. Teachers and self-learners consistently praise its engaging content and highly structured format, though critics note that true fluency requires extensive practice beyond the classroom.",
+    },
+    advanced: {
+      title: "English File Advanced",
+      description: "Oxford's English File Advanced series is highly praised by educators and learners for its engaging, conversation-driven approach. Tailored for C1-C2 proficiency, it blends grammar, vocabulary, and pronunciation, though some find its pop-culture texts less rigorous than purely academic resources.",
+    },
+  },
 };
 
 const tm: Dict = {
@@ -489,6 +549,32 @@ const tm: Dict = {
     eyebrow: "Esasy okuw kitaplary",
     heading: "Näme üçin English File bilen öwredýäris",
     body: "English File — dünýäde iňlis dilini öwrenmek üçin iň ynamdar maksatnamalaryň biridir. Onuň gepleşik, diňleýiş, okaýyş we ýazuw boýunça deňagramly çemeleşmesi okuwçylara has çalt ösmäge we hakyky durmuşda ynamly gürleşmäge kömek edýär. Şonuň üçin bu seriýa kurslarymyzyň esasy okuw kitaplary hökmünde ulanylýar.",
+  },
+  efLevels: {
+    beginner: {
+      title: "English File — Başlangyç",
+      description: "Oxford-yň English File Beginner seriýasy (3-nji we 5-nji neşirleri öz içine alýar) mugallymlar tarapyndan başlangyç okuwçylar üçin gyzykly, gurluşly we kommunikatiw esas hökmünde ýokary baha berilýär. Esasan gepleşige, gündelik söz baýlygyna we sözleýişe ünsi jemleýär, ýöne mugallymyň gözegçiliginden başga ýagdaýda öz-özüne öwrenmek üçin çäkli.",
+    },
+    elementary: {
+      title: "English File — Ilkinji",
+      description: "Oxford University Press-iň English File Elementary (CEFR A1) okuwçylary aktiw gepledýän gyzykly, kommunikatiw we gurluşly iňlis dili kursy hökmünde mugallymlar tarapyndan ýokary baha berilýär. Maksatnama grammatika, söz baýlygy we sözleýişi deňagramly birleşdirýär we döwrebap multimedia çeşmelerini ulanýar.",
+    },
+    preIntermediate: {
+      title: "English File — Orta öň",
+      description: "Oxford-yň English File Pre-Intermediate okuwçylary A2 derejesinden B1 derejesine geçirmek üçin niýetlenen meşhur ESL/EFL okuw kitabydyr. Gyzykly temalary we gepleşige berýän güýçli ünsi sebäpli ýokary baha berilýär; grammatika, söz baýlygy we başarnyk ösüşi boýunça deňagramly öwredýär.",
+    },
+    intermediate: {
+      title: "English File — Orta",
+      description: "Oxford-yň English File Intermediate okuwçylary üstünlikli gepledýändigi bilen tanalýan, ýokary baha berilýän gurluşly okuw kitabydyr. Mugallymlar grammatika, söz baýlygy, sözleýiş we dört başarnygyň deňagramly birleşdirilişine üns berýärler. Pop-medeniýet bilen baglanyşykly okaýyş temalary höwesi ýokary saklaýar.",
+    },
+    upperIntermediate: {
+      title: "English File — Orta üst",
+      description: "Oxford-yň English File Upper-Intermediate deňagramly maksatnamasy we gepleşige berilen ünsi bilen tanalýan meşhur, doly ESL okuw kitabydyr. Mugallymlar we özbaşdak öwrenýänler onuň gyzykly mazmunyny we aýdyň gurluşyny mydama goldaýarlar, emma hakyky erkin gepleşik üçin synpdan daşary köp tejribe gerek.",
+    },
+    advanced: {
+      title: "English File — Ýokary",
+      description: "Oxford-yň English File Advanced seriýasy gyzykly, gepleşige esaslanýan çemeleşmesi üçin mugallymlar we okuwçylar tarapyndan ýokary baha berilýär. C1–C2 derejesi üçin niýetlenen bolup, grammatika, söz baýlygy we sözleýişi birleşdirýär; käbirleri onuň pop-medeniýet tekstlerini arassa akademiki çeşmelerden az berk hasaplaýar.",
+    },
   },
 };
 

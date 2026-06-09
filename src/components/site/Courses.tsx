@@ -132,49 +132,43 @@ export function Courses() {
             {
               lang: "English",
               id: "ef-beginner",
-              title: "English File Beginner",
-              description:
-                "Oxford`s English File Beginner series (covering editions 3 through 5) is widely praised by educators as a highly engaging, structured, and communicative foundation for absolute learners. It focuses heavily on speaking, practical everyday vocabulary, and pronunciation, though its standalone value is somewhat limited without active teacher guidance.",
+              title: t.efLevels.beginner.title,
+              description: t.efLevels.beginner.description,
             },
             {
               lang: "English",
               books: SECONDARY_BOOKS,
               id: "ef-elementary",
-              title: "English File Elementary",
-              description:
-                "Oxford University Press's English File Elementary (CEFR Level A1) is widely praised by educators as an engaging, communicative, and highly structured English course. The curriculum balances grammar, vocabulary, and pronunciation while utilizing dynamic multimedia resources to get students actively talking.",
+              title: t.efLevels.elementary.title,
+              description: t.efLevels.elementary.description,
             },
             {
               lang: "English",
               books: TERTIARY_BOOKS,
               id: "ef-pre-intermediate",
-              title: "English File Pre-Intermediate",
-              description:
-                "Oxford's English File Pre-Intermediate is a highly popular ESL/EFL textbook designed to take students from an A2 to B1 level of fluency. Widely praised for its engaging topics and strong focus on speaking and pronunciation, the series offers a well-rounded balance of grammar, vocabulary, and skills development.",
+              title: t.efLevels.preIntermediate.title,
+              description: t.efLevels.preIntermediate.description,
             },
             {
               lang: "English",
               books: QUATERNARY_BOOKS,
               id: "ef-intermediate",
-              title: "English File Intermediate",
-              description:
-                "Oxford's English File Intermediate is a highly praised, structured coursebook renowned for successfully getting students speaking. Educators on WordPress and reviewers on BEBC highlight its balanced mix of grammar, vocabulary, pronunciation, and four-skill development. It features engaging, pop-culture-oriented reading topics that keep learners motivated.",
+              title: t.efLevels.intermediate.title,
+              description: t.efLevels.intermediate.description,
             },
             {
               lang: "English",
               books: QUINARY_BOOKS,
               id: "ef-upper-intermediate",
-              title: "English File Upper-Intermediate",
-              description:
-                "Oxford's English File Upper-Intermediate is a highly popular, comprehensive ESL textbook renowned for its balanced syllabus and emphasis on speaking. Teachers and self-learners consistently praise its engaging content and highly structured format, though critics note that true fluency requires extensive practice beyond the classroom.",
+              title: t.efLevels.upperIntermediate.title,
+              description: t.efLevels.upperIntermediate.description,
             },
             {
               lang: "English",
               books: SENARY_BOOKS,
               id: "ef-advanced",
-              title: "English File Advanced",
-              description:
-                "Oxford`s English File Advanced series is highly praised by educators and learners for its engaging, conversation-driven approach. Tailored for C1-C2 proficiency, it blends grammar, vocabulary, and pronunciation, though some find its pop-culture texts less rigorous than purely academic resources.",
+              title: t.efLevels.advanced.title,
+              description: t.efLevels.advanced.description,
             },
           ];
           return (
