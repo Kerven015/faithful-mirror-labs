@@ -26,6 +26,14 @@ type Dict = {
     cefrDesc: string;
   };
   englishFile: { eyebrow: string; heading: string; body: string };
+  efLevels: {
+    beginner: { title: string; description: string };
+    elementary: { title: string; description: string };
+    preIntermediate: { title: string; description: string };
+    intermediate: { title: string; description: string };
+    upperIntermediate: { title: string; description: string };
+    advanced: { title: string; description: string };
+  };
   teachers: { title: string; experience: string; experienceTag: string; load: string; years: (n: number) => string };
   about: {
     eyebrow: string;
