@@ -126,7 +126,7 @@ export function Courses() {
           </div>
         )}
 
-        {category === "English" && audience === "adults" && (() => {
+        {((category === "English" && audience === "adults") || (category === "All" && audience === "All")) && (() => {
           type Carousel = {
             lang: Exclude<CourseCategory, "All">;
             books?: Parameters<typeof BookSlider>[0]["books"];
