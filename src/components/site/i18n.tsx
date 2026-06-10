@@ -389,6 +389,7 @@ const en: Dict = {
     eyebrow: "Featured textbook series",
     heading: "Why we teach with English File",
     body: "English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.",
+    carouselTitle: "Our English Courses",
   },
   efLevels: {
     beginner: {
