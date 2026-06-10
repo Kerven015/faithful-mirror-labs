@@ -25,7 +25,7 @@ type Dict = {
     currency: string;
     cefrDesc: string;
   };
-  englishFile: { eyebrow: string; heading: string; body: string };
+  englishFile: { eyebrow: string; heading: string; body: string; carouselTitle: string };
   efLevels: {
     beginner: { title: string; description: string };
     elementary: { title: string; description: string };
