@@ -25,7 +25,7 @@ type Dict = {
     currency: string;
     cefrDesc: string;
   };
-  englishFile: { eyebrow: string; heading: string; body: string };
+  englishFile: { eyebrow: string; heading: string; body: string; carouselTitle: string };
   efLevels: {
     beginner: { title: string; description: string };
     elementary: { title: string; description: string };
@@ -227,6 +227,7 @@ const ru: Dict = {
     eyebrow: "Рекомендуемая серия учебников",
     heading: "Почему мы выбрали English File",
     body: "English File — одна из самых надёжных программ изучения английского языка в мире. Её сбалансированный подход к разговорной речи, аудированию, чтению и письму помогает студентам быстрее прогрессировать и обретать уверенность в реальном общении. Именно поэтому она является основной серией учебников на наших курсах.",
+    carouselTitle: "Наши курсы английского языка",
   },
   efLevels: {
     beginner: {
@@ -388,6 +389,7 @@ const en: Dict = {
     eyebrow: "Featured textbook series",
     heading: "Why we teach with English File",
     body: "English File is one of the world's most trusted English-learning programs. Its balanced approach to speaking, listening, reading, and writing helps students improve faster and gain confidence in real-life communication. That's why it is the core textbook series used in our courses.",
+    carouselTitle: "Our English Courses",
   },
   efLevels: {
     beginner: {
@@ -549,6 +551,7 @@ const tm: Dict = {
     eyebrow: "Esasy okuw kitaplary",
     heading: "Näme üçin English File bilen öwredýäris",
     body: "English File — dünýäde iňlis dilini öwrenmek üçin iň ynamdar maksatnamalaryň biridir. Onuň gepleşik, diňleýiş, okaýyş we ýazuw boýunça deňagramly çemeleşmesi okuwçylara has çalt ösmäge we hakyky durmuşda ynamly gürleşmäge kömek edýär. Şonuň üçin bu seriýa kurslarymyzyň esasy okuw kitaplary hökmünde ulanylýar.",
+    carouselTitle: "Iňlis dili kurslarymyz",
   },
   efLevels: {
     beginner: {
