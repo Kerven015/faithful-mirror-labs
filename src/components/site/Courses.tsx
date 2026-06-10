@@ -65,15 +65,21 @@ export function Courses() {
         <p className="mt-5 text-lg text-foreground/60 max-w-3xl">{t.courses.subtitle}</p>
 
         <div className="mt-10 flex flex-wrap items-center gap-2">
-          {AUDIENCES.map((a) => (
-            <button
-              key={a}
-              onClick={() => setAudience(a)}
-              className={`${baseBtn} ${audience === a ? activeBtn : inactiveBtn}`}
-            >
-              {audLabel(a)}
-            </button>
-          ))}
+          {AUDIENCES.map((a) => {
+            const isAllReset = a === "All" && category === "All" && audience === "All";
+            return (
+              <button
+                key={a}
+                onClick={() => {
+                  setAudience(a);
+                  if (a === "All") setCategory("All");
+                }}
+                className={`${baseBtn} transition-all duration-300 ${audience === a ? activeBtn : inactiveBtn}`}
+              >
+                {audLabel(a)}
+              </button>
+            );
+          })}
 
           <Popover open={catOpen} onOpenChange={setCatOpen}>
             <PopoverTrigger asChild>
@@ -120,7 +126,7 @@ export function Courses() {
           </div>
         )}
 
-        {category === "English" && audience === "adults" && (() => {
+        {((category === "English" && audience === "adults") || (category === "All" && audience === "All")) && (() => {
           type Carousel = {
             lang: Exclude<CourseCategory, "All">;
             books?: Parameters<typeof BookSlider>[0]["books"];
