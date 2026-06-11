@@ -59,10 +59,12 @@ export function Courses() {
   return (
     <section id="courses" className="px-5 lg:px-10 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground max-w-4xl">
-          {t.courses.title}
-        </h2>
-        <p className="mt-5 text-lg text-foreground/60 max-w-3xl">{t.courses.subtitle}</p>
+        <div className="text-center mb-12 lg:mb-16 animate-fade-in-up">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground">
+            {t.courses.title}
+          </h2>
+          <div className="mt-6 mx-auto w-20 h-1.5 rounded-full bg-gradient-to-r from-transparent via-brand to-transparent" />
+        </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-2">
           {AUDIENCES.map((a) => {
