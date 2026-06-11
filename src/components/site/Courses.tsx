@@ -126,7 +126,7 @@ export function Courses() {
           </div>
         )}
 
-        {((category === "English" && audience === "adults") || (category === "All" && audience === "All")) && (() => {
+        {category === "English" && audience === "adults" && (() => {
           type Carousel = {
             lang: Exclude<CourseCategory, "All">;
             books?: Parameters<typeof BookSlider>[0]["books"];
@@ -210,14 +210,6 @@ export function Courses() {
                   <BookSlider books={c.books} />
                 </div>
               ))}
-              {category === "All" && audience === "All" && (
-                <div className="mt-24 mb-4 text-center animate-fade-in">
-                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground">
-                    {t.englishFile.carouselTitle}
-                  </h2>
-                  <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-brand to-transparent" />
-                </div>
-              )}
             </>
           );
         })()}
