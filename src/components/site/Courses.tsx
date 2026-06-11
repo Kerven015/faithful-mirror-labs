@@ -122,6 +122,9 @@ export function Courses() {
         </div>
         {category === "All" && (
           <div className="mt-14 animate-fade-in">
+            <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-10 lg:mb-14 animate-fade-in">
+              {t.englishFile.carouselTitle}
+            </h2>
             <BookSlider books={ALL_BOOKS} onBookClick={handleBookClick} />
           </div>
         )}
