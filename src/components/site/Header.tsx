@@ -1,7 +1,8 @@
 import { useState } from "react";
 import logo from "@/assets/logo-mark.png";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Download } from "lucide-react";
 import { useI18n, LANGS, Lang } from "./i18n";
+import { Link } from "@tanstack/react-router";
 
 export function Header() {
   const { lang, setLang, t } = useI18n();
@@ -49,6 +50,13 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
+          <Link
+            to="/download-guide"
+            className="inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/80 hover:text-brand transition-colors"
+          >
+            <Download className="h-4 w-4" />
+            {t.nav.download}
+          </Link>
           <div className="relative">
             <button
               onClick={() => setLangOpen((v) => !v)}
