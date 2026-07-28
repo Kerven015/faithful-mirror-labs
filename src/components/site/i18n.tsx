@@ -3,7 +3,7 @@ import { createContext, useContext, useState, ReactNode } from "react";
 export type Lang = "ru" | "en" | "tm";
 
 type Dict = {
-  nav: { about: string; courses: string; teachers: string; contact: string; mainMenu: string };
+  nav: { about: string; courses: string; teachers: string; contact: string; mainMenu: string; download: string };
   langName: string;
   login: string;
   hero: { title: string; sound: string };
@@ -96,7 +96,7 @@ type Dict = {
 };
 
 const ru: Dict = {
-  nav: { about: "О нас", courses: "Курсы", teachers: "Преподаватели", contact: "Связаться с нами", mainMenu: "Главное меню" },
+  nav: { about: "О нас", courses: "Курсы", teachers: "Преподаватели", contact: "Связаться с нами", mainMenu: "Главное меню", download: "Скачать" },
   langName: "Русский",
   login: "Войти",
   hero: { title: "Эффект начинается здесь — будь его частью с Kitap", sound: "Звук" },
@@ -258,7 +258,7 @@ const ru: Dict = {
 };
 
 const en: Dict = {
-  nav: { about: "About", courses: "Courses", teachers: "Teachers", contact: "Contact", mainMenu: "Main menu" },
+  nav: { about: "About", courses: "Courses", teachers: "Teachers", contact: "Contact", mainMenu: "Main menu", download: "Download" },
   langName: "English",
   login: "Sign in",
   hero: { title: "The effect starts here — be a part of it with Kitap", sound: "Sound" },
@@ -420,7 +420,7 @@ const en: Dict = {
 };
 
 const tm: Dict = {
-  nav: { about: "Biz hakda", courses: "Kurslar", teachers: "Mugallymlar", contact: "Habarlaşmak", mainMenu: "Baş menýu" },
+  nav: { about: "Biz hakda", courses: "Kurslar", teachers: "Mugallymlar", contact: "Habarlaşmak", mainMenu: "Baş menýu", download: "Ýüklemek" },
   langName: "Türkmen",
   login: "Girmek",
   hero: { title: "Täsir şu ýerden başlanýar — Kitap bilen bile boluň", sound: "Ses" },
