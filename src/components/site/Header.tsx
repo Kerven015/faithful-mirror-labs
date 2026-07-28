@@ -109,6 +109,14 @@ export function Header() {
                 {item.label}
               </a>
             ))}
+            <Link
+              to="/download-guide"
+              onClick={() => setOpen(false)}
+              className="py-3 text-[15px] font-medium text-foreground/80 flex items-center gap-2"
+            >
+              <Download className="h-4 w-4" />
+              {t.nav.download}
+            </Link>
             <div className="flex gap-2 pt-3 border-t border-border mt-2">
               {LANGS.map((l) => (
                 <button
