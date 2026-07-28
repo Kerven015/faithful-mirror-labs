@@ -1,14 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header } from "@/components/site/Header";
-import { Hero } from "@/components/site/Hero";
-import { Courses } from "@/components/site/Courses";
-import { Teachers } from "@/components/site/Teachers";
-import { About } from "@/components/site/About";
-import { News } from "@/components/site/News";
-import { Faq } from "@/components/site/Faq";
-import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
-import { I18nProvider } from "@/components/site/i18n";
+import { HomePage } from "@/components/site/HomePage";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
