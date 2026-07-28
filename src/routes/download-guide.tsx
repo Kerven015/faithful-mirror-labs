@@ -59,7 +59,7 @@ function DownloadGuideContent() {
           <span
             className={`inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1 rounded-full ${
               isMobile
-                ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300"
+                ? "bg-brand-soft text-brand dark:bg-brand/20 dark:text-brand-foreground"
                 : "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
             }`}
           >
@@ -135,8 +135,8 @@ function DownloadGuideContent() {
             </h2>
           </div>
 
-          <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 mb-6">
-            <p className="text-sm text-amber-800 dark:text-amber-200">
+          <div className="rounded-xl bg-brand-soft dark:bg-brand/15 border border-brand/30 p-4 mb-6">
+            <p className="text-sm text-brand">
               {t.downloadGuide?.mobileNote ||
                 "ZIP download is not available directly from the mobile editor."}
             </p>
