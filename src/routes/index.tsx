@@ -15,25 +15,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "English courses following CEFR standards." },
     ],
   }),
-  component: Index,
+  component: HomePage,
 });
 
-function Index() {
-  return (
-    <I18nProvider>
-      <div className="min-h-screen bg-background font-sans antialiased">
-        <Header />
-        <main>
-          <Hero />
-          <Courses />
-          <Teachers />
-          <About />
-          <News />
-          <Faq />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </I18nProvider>
-  );
-}
