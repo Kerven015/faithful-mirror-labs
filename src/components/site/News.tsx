@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useI18n } from "./i18n";
+import { SectionHeading } from "./SectionHeading";
+import { Reveal } from "./Reveal";
 
 const COVERS = [
   "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&auto=format&fit=crop&q=70",
@@ -20,28 +22,33 @@ export function News() {
   return (
     <section id="news" className="px-5 lg:px-10 py-20 lg:py-28 bg-surface">
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-          {t.news.title}
-        </h2>
+        <Reveal>
+          <SectionHeading title={t.news.title} />
+        </Reveal>
 
         <div className="mt-12 grid lg:grid-cols-2 gap-8">
-          <article className="group overflow-hidden rounded-3xl bg-card border border-border">
-            <div className="relative aspect-[16/10] overflow-hidden">
-              <img
-                src={COVERS[0]}
-                alt={feature.title}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-7">
-              <h3 className="text-2xl font-semibold text-foreground">{feature.title}</h3>
-              <p className="mt-3 text-foreground/65">{feature.desc}</p>
-              <p className="mt-5 text-sm text-foreground/50">{feature.date}</p>
-            </div>
-          </article>
+          <Reveal>
+            <article className="group h-full overflow-hidden rounded-3xl bg-card border border-border transition-all duration-300 hover:shadow-xl">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={COVERS[0]}
+                  alt={feature.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-7">
+                <h3 className="text-2xl font-semibold text-foreground">{feature.title}</h3>
+                <p className="mt-3 text-foreground/65">{feature.desc}</p>
+                <p className="mt-5 text-sm text-foreground/50">{feature.date}</p>
+              </div>
+            </article>
+          </Reveal>
 
-          <div className="flex flex-col divide-y divide-border bg-card rounded-3xl border border-border overflow-hidden">
+          <Reveal
+            delay={100}
+            className="flex flex-col divide-y divide-border bg-card rounded-3xl border border-border overflow-hidden"
+          >
             {rest.slice(0, 5).map((n, i) => (
               <a
                 key={n.title}
@@ -63,25 +70,27 @@ export function News() {
                 <ArrowUpRight className="h-5 w-5 flex-shrink-0 text-foreground/30 group-hover:text-brand transition-colors" />
               </a>
             ))}
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {rest.slice(5).map((n, i) => (
-            <article key={n.title} className="group overflow-hidden rounded-2xl bg-card border border-border">
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={COVERS[i + 6]}
-                  alt={n.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <h4 className="font-semibold text-foreground line-clamp-2">{n.title}</h4>
-                <p className="mt-2 text-xs text-foreground/55">{n.date}</p>
-              </div>
-            </article>
+            <Reveal key={n.title} delay={i * 60}>
+              <article className="group overflow-hidden rounded-2xl bg-card border border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={COVERS[i + 6]}
+                    alt={n.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <h4 className="font-semibold text-foreground line-clamp-2">{n.title}</h4>
+                  <p className="mt-2 text-xs text-foreground/55">{n.date}</p>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
