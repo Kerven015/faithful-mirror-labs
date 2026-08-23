@@ -6,7 +6,7 @@ type Dict = {
   nav: { about: string; courses: string; teachers: string; contact: string; mainMenu: string; download: string };
   langName: string;
   login: string;
-  hero: { title: string; sound: string };
+  hero: { title: string; sound: string; subtitle: string; cta: string; statTeachers: string; statCourses: string };
   courses: {
     title: string;
     subtitle: string;
@@ -99,7 +99,7 @@ const ru: Dict = {
   nav: { about: "О нас", courses: "Курсы", teachers: "Преподаватели", contact: "Связаться с нами", mainMenu: "Главное меню", download: "Скачать" },
   langName: "Русский",
   login: "Войти",
-  hero: { title: "Эффект начинается здесь — будь его частью с Kitap", sound: "Звук" },
+  hero: { title: "Эффект начинается здесь — будь его частью с Kitap", sound: "Звук", subtitle: "Курсы английского языка для детей и взрослых по международным стандартам CEFR — в самом центре Ашхабада.", cta: "Выбрать курс", statTeachers: "опытных преподавателей", statCourses: "активных групп" },
   courses: {
     title: "Наши курсы предназначены для детей и взрослых",
     subtitle: "Мы обучаем английскому языку по международным стандартам CEFR, помогая вам пройти путь от новичка до свободного владения.",
@@ -261,7 +261,7 @@ const en: Dict = {
   nav: { about: "About", courses: "Courses", teachers: "Teachers", contact: "Contact", mainMenu: "Main menu", download: "Download" },
   langName: "English",
   login: "Sign in",
-  hero: { title: "The effect starts here — be a part of it with Kitap", sound: "Sound" },
+  hero: { title: "The effect starts here — be a part of it with Kitap", sound: "Sound", subtitle: "English courses for children and adults following CEFR international standards — in the heart of Ashgabat.", cta: "Explore courses", statTeachers: "certified teachers", statCourses: "active groups" },
   courses: {
     title: "Our courses are designed for children and adults",
     subtitle: "We teach English following the CEFR international standards, taking you from beginner to fluent.",
@@ -423,7 +423,7 @@ const tm: Dict = {
   nav: { about: "Biz hakda", courses: "Kurslar", teachers: "Mugallymlar", contact: "Habarlaşmak", mainMenu: "Baş menýu", download: "Ýüklemek" },
   langName: "Türkmen",
   login: "Girmek",
-  hero: { title: "Täsir şu ýerden başlanýar — Kitap bilen bile boluň", sound: "Ses" },
+  hero: { title: "Täsir şu ýerden başlanýar — Kitap bilen bile boluň", sound: "Ses", subtitle: "Aşgabatyň merkezinde çagalar we ulular üçin CEFR halkara ülňülerinde iňlis dili kurslary.", cta: "Kurslary gör", statTeachers: "hünärli mugallym", statCourses: "işjeň topar" },
   courses: {
     title: "Kurslarymyz çagalar we ulular üçin",
     subtitle: "Iňlis dilini halkara CEFR ülňülerine görä öwredýäris — başlangyçdan erkin derejä çenli.",
