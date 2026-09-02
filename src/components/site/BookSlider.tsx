@@ -29,12 +29,6 @@ import book26 from "@/assets/books/book-26.webp";
 import book27 from "@/assets/books/book-27.webp";
 import book28 from "@/assets/books/book-28.webp";
 import book29 from "@/assets/books/book-29.webp";
-import allBook1 from "@/assets/books/all-book-1.webp.asset.json";
-import allBook2 from "@/assets/books/all-book-2.webp.asset.json";
-import allBook3 from "@/assets/books/all-book-3.webp.asset.json";
-import allBook4 from "@/assets/books/all-book-4.webp.asset.json";
-import allBook5 from "@/assets/books/all-book-5.webp.asset.json";
-import allBook6 from "@/assets/books/all-book-6.webp.asset.json";
 
 type Book = { src: string; alt: string; targetId?: string };
 
@@ -86,12 +80,12 @@ export const SENARY_BOOKS: Book[] = [
 ];
 
 export const ALL_BOOKS: Book[] = [
-  { src: allBook1.url, alt: "English File Beginner — Student's Book & Workbook", targetId: "ef-beginner" },
-  { src: allBook2.url, alt: "English File Elementary — Student's Book & Workbook", targetId: "ef-elementary" },
-  { src: allBook3.url, alt: "English File Pre-intermediate — Student's Book & Workbook", targetId: "ef-pre-intermediate" },
-  { src: allBook4.url, alt: "English File Intermediate — Student's Book & Workbook", targetId: "ef-intermediate" },
-  { src: allBook5.url, alt: "English File Upper-intermediate — Student's Book & Workbook", targetId: "ef-upper-intermediate" },
-  { src: allBook6.url, alt: "English File Advanced — Student's Book & Workbook", targetId: "ef-advanced" },
+  { src: book1, alt: "English File Beginner — Student's Book & Workbook", targetId: "ef-beginner" },
+  { src: book6, alt: "English File Elementary — Student's Book & Workbook", targetId: "ef-elementary" },
+  { src: book10, alt: "English File Pre-intermediate — Student's Book & Workbook", targetId: "ef-pre-intermediate" },
+  { src: book15, alt: "English File Intermediate — Student's Book & Workbook", targetId: "ef-intermediate" },
+  { src: book20, alt: "English File Upper-intermediate — Student's Book & Workbook", targetId: "ef-upper-intermediate" },
+  { src: book25, alt: "English File Advanced — Student's Book & Workbook", targetId: "ef-advanced" },
 ];
 
 export function BookSlider({

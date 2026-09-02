@@ -8,12 +8,14 @@ import { Monitor, Smartphone, ArrowLeft, Code2, FileDown, ScrollText, Github, Ex
 export function DownloadGuidePage() {
   return (
     <I18nProvider>
-      <div className="min-h-screen bg-background font-sans antialiased">
+      <div className="min-h-screen bg-background font-sans antialiased md:grid md:grid-cols-[240px_minmax(0,1fr)]">
         <Header />
-        <main>
-          <DownloadGuideContent />
-        </main>
-        <Footer />
+        <div className="min-w-0">
+          <main>
+            <DownloadGuideContent />
+          </main>
+          <Footer />
+        </div>
       </div>
     </I18nProvider>
   );
